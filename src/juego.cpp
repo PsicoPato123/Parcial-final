@@ -56,3 +56,8 @@ void juego::teclado() {
 void juego::actualizar() {
 
 }
+juego::~juego(){
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}

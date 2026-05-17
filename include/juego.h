@@ -22,5 +22,6 @@ public:
         
 private:   
 personaje personaje1;
+~juego();
 }; 
 #endif // JUEGO_H
