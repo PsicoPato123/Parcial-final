@@ -2,6 +2,7 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 #include <SDL2/SDL.h>
+#include "personaje.h"
 
 
 class juego {
@@ -20,8 +21,6 @@ public:
     void limpiar();  
         
 private:   
-    int player_a;
-    int player_b;
-    int velocidad;
+personaje personaje1;
 }; 
 #endif // JUEGO_H

@@ -2,15 +2,11 @@
 #include <iostream>
 #include "personaje.h"
 
-juego::juego() {
-    personaje personaje1(100, 100, 5, nullptr);
+juego::juego() : personaje1(300, 250, 5, nullptr) {
     SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     caminando = true;
-    player_a = 300;
-    player_b = 250;
-    velocidad = 5;
 }
 void juego ::inicializar() {
     SDL_RenderPresent(renderer);
@@ -26,11 +22,9 @@ void juego::loop() {
 void juego::mostrar(){
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 1); 
-    SDL_Rect player = { player_a, player_b, 100, 100 };
-    personaje.dibujar(renderer);
-    SDL_RenderFillRect(renderer, &player);
-  
+    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
+    personaje1.dibujar(renderer);
+    SDL_RenderPresent (renderer);
  };
 
 void juego::teclado() {
@@ -42,17 +36,17 @@ void juego::teclado() {
             }
             switch (event.key.keysym.sym) {
                 case SDLK_LEFT:
-                    player_a -= velocidad;
-                    break;
+                    personaje1.mover(-1, 0);
+                break;
                 case SDLK_RIGHT:
-                    player_a += velocidad;
-                    break;
+                    personaje1.mover(1, 0);
+                break;
                 case SDLK_UP:
-                    player_b -= velocidad;
-                    break;
+                    personaje1.mover(0, -1);
+                break;
                 case SDLK_DOWN:
-                    player_b += velocidad;
-                    break;
+                    personaje1.mover(0, 1);
+                break;
             }
         }
     }

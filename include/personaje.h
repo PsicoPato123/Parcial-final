@@ -9,11 +9,11 @@ private:
     int velocidad;
     SDL_Texture* textura;
     SDL_Rect hitbox;
-    
+
 public: 
-    personaje(int x, int y, int velocidad, SDL_Texture* textura) { };
+    personaje(int x, int y, int velocidad, SDL_Texture* textura);
     void mover (int dx, int dy);
-    void actualizar(){};
+    void actualizar();
     void dibujar (SDL_Renderer* renderer);
     ~personaje();
 };
