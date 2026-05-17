@@ -6,6 +6,11 @@ juego::juego() : personaje1(300, 250, 5, nullptr) {
     SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    paredarriba = {0, 0, 800, 20};
+    paredabajo = {0, 580, 800, 20};
+    paredizquierda = {0, 0, 20, 600};
+    paredderecha_up = {780, 400, 20, 200};
+    paredderecha_down = {780, 0, 20, 200};
     caminando = true;
 }
 void juego ::inicializar() {
@@ -22,10 +27,18 @@ void juego::loop() {
 void juego::mostrar(){
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
     SDL_RenderClear(renderer);
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &paredarriba);
+    SDL_RenderFillRect(renderer, &paredabajo);      
+    SDL_RenderFillRect(renderer, &paredizquierda);
+    SDL_RenderFillRect(renderer, &paredderecha_up);
+    SDL_RenderFillRect(renderer, &paredderecha_down);
+
     SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
     personaje1.dibujar(renderer);
     SDL_RenderPresent (renderer);
- };
+ }; 
 
 void juego::teclado() {
     SDL_Event event;

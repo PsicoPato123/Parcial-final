@@ -23,5 +23,11 @@ public:
 private:   
 personaje personaje1;
 ~juego();
+SDL_Rect paredarriba;
+SDL_Rect paredabajo;
+SDL_Rect paredizquierda;    
+SDL_Rect paredderecha;
+SDL_Rect paredderecha_up;
+SDL_Rect paredderecha_down;
 }; 
 #endif // JUEGO_H
