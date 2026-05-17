@@ -21,6 +21,10 @@ void personaje::dibujar(SDL_Renderer* renderer) {
     SDL_RenderFillRect(renderer, &hitbox);
 }   
 void personaje::actualizar() {
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x > 750) x = 750;
+    if (y > 550) y = 550;    
     hitbox.x = x;
     hitbox.y = y;
 }   
