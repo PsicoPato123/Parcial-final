@@ -1,6 +1,6 @@
 #define SDL_MAIN_HANDLED
-#ifndef GAME_H
-#define GAME_H
+#ifndef JUEGO_H
+#define JUEGO_H
 #include <SDL2/SDL.h>
 
 
@@ -24,4 +24,4 @@ private:
     int player_b;
     int velocidad;
 }; 
-#endif // GAME_H
+#endif // JUEGO_H

@@ -1,8 +1,9 @@
-#include "game.h"
-#include <cstdlib>
+#include "juego.h"
 #include <iostream>
+#include "personaje.h"
 
 juego::juego() {
+    personaje personaje1(100, 100, 5, nullptr);
     SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -27,9 +28,8 @@ void juego::mostrar(){
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 255, 255, 0, 1); 
     SDL_Rect player = { player_a, player_b, 100, 100 };
-    
+    personaje.dibujar(renderer);
     SDL_RenderFillRect(renderer, &player);
-    SDL_RenderPresent(renderer);
   
  };
 
