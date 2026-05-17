@@ -16,6 +16,9 @@ public:
     void actualizar();
     void dibujar (SDL_Renderer* renderer);
     ~personaje();
+    SDL_Rect getHitbox ();
+
+
 };
 
 #endif // PERSONAJE_H

@@ -43,6 +43,9 @@ void juego::mostrar(){
 void juego::teclado() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
+        if(event.type == SDL_QUIT){
+             caminando = false; 
+                }
         if (event.type == SDL_KEYDOWN) {
             if (event.key.keysym.sym == SDLK_ESCAPE) {
                 caminando = false;
@@ -67,8 +70,21 @@ void juego::teclado() {
 
 
 void juego::actualizar() {
-
+    SDL_Rect playerHitbox = personaje1.getHitbox();
+    if (SDL_HasIntersection(&playerHitbox, &paredarriba)) { 
+        std::cout << "No puedes pasar la pared" << std::endl;
+    }
+    if (SDL_HasIntersection(&playerHitbox, &paredabajo)) {
+        std::cout << "No puedes pasar la pared" << std::endl;
+    }
+    if (SDL_HasIntersection(&playerHitbox, &paredderecha_up) || SDL_HasIntersection(&playerHitbox, &paredderecha_down)) {
+        std::cout << "No puedes pasar la pared" << std::endl;
+    }
+    if (SDL_HasIntersection(&playerHitbox, &paredizquierda)) {
+        std::cout << "No puedes pasar la pared" << std::endl;
+    }
 }
+
 juego::~juego(){
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

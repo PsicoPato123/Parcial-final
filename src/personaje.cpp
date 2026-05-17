@@ -31,3 +31,6 @@ void personaje::actualizar() {
 personaje::~personaje(){
     SDL_DestroyTexture(textura);
 }
+ SDL_Rect personaje::getHitbox(){
+        return hitbox;
+    }
