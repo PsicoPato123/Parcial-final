@@ -1,0 +1,27 @@
+# Ejecutables
+*.exe
+
+# Archivos objeto
+*.o
+*.obj
+
+# Librerías compiladas
+*.dll
+*.so
+*.a
+
+# Carpetas de VS Code
+.vscode/
+
+# Archivos temporales
+*.log
+
+# Caché
+.cache/
+
+# Build folders
+build/
+
+# Archivos de sistema Windows
+Thumbs.db
+Desktop.ini
