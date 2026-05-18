@@ -20,6 +20,8 @@
         derecha = false;
         arriba = false;
         abajo = false;
+        vida=100;
+        damagetime=0;
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -91,6 +93,9 @@
     }
 
     void juego::actualizar() {
+        if (damagetime > 0) {
+            damagetime--;
+        }
         if (izquierda) {
             personaje1.mover(-1, 0);
         }
@@ -157,9 +162,15 @@
             enemigos[i].setx(oldenemx);
             enemigos[i].sety(oldenemy); }
         if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
-        caminando= false;
+        if (damagetime ==0){
+            vida -= 10;
+            damagetime=60;
+            std::cout << "Te han pateado :c\n Vida restante: " << vida << std::endl;
+        }
+        if (vida <= 0) {
+            caminando= false;
         std::cout << "Te han desplumado.\n Fin del juego X.X" << std::endl;
-    }  }}
+    }  }} }
 
     juego::~juego(){
         SDL_DestroyRenderer(renderer);

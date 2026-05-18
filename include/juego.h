@@ -23,11 +23,11 @@ public:
     void mostrar();
     void teclado ();
     void limpiar();  
-        
+    int vida;     
+    int damagetime;
 private:   
 personaje personaje1;
 std::vector<personaje> enemigos;
-
 ~juego();
 SDL_Rect paredarriba;
 SDL_Rect paredabajo;
@@ -39,5 +39,6 @@ int oldx;
 int oldy;
 int oldenemx;
 int oldenemy;
+
 }; 
 #endif // JUEGO_H
