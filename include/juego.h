@@ -41,5 +41,7 @@ int oldy;
 int oldenemx;
 int oldenemy;
 SDL_Rect ataquehitbox;
+int cooldown;
+
 }; 
 #endif // JUEGO_H

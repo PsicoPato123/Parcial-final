@@ -23,8 +23,9 @@
         abajo = false;
         vida=100;
         damagetime=0;
-        ataque = false;
-        ataquehitbox = {0, 0, 35, 35};
+        ataque= false;
+        ataquehitbox= {0, 0, 35, 35};
+        cooldown=0;
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -118,6 +119,9 @@
         if (damagetime > 0) {
             damagetime--;
         }
+         if (cooldown > 0) {
+            cooldown--;}  
+    
         if (izquierda) {
             personaje1.mover(-1, 0);
         }
@@ -172,10 +176,11 @@
                 enemigos[i].mover(0, -1);}
 
         SDL_Rect enemyHitbox= enemigos[i].getHitbox();
-        if (ataque && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)) {
+        if (ataque && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)&& ataque && cooldown == 0) {
             int vidaenemiga = enemigos[i].getvida();
             vidaenemiga -= 20;
             enemigos[i].setvida(vidaenemiga);
+            cooldown = 30; 
         }
         if (enemigos[i].getvida() <= 0) {
             enemigos.erase(enemigos.begin() + i);
@@ -202,7 +207,7 @@
         if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
         if (damagetime ==0){
             vida -= 10;
-            if (vida < 0) vida = 0;
+        if (vida < 0) vida = 0;
             damagetime=60;
             std::cout << "Te han pateado :c\n Vida restante: " << vida << std::endl;
         }
