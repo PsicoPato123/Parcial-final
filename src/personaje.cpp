@@ -2,12 +2,13 @@
 #include <cstdlib>
 #include <iostream>
 
-personaje::personaje(int x, int y, int velocidad, SDL_Texture* textura, SDL_Color color) {
+personaje::personaje(int x, int y, int velocidad, SDL_Texture* textura, SDL_Color color, int vida) {
     this -> x = x;
     this -> y = y;
     this -> velocidad = velocidad;
     this -> textura = textura;
     this -> color = color;
+    this -> vida = vida;
     hitbox.x = x;
     hitbox.y = y;
     hitbox.w = 50; 
@@ -44,6 +45,12 @@ void personaje::actualizar() {
         this -> y = y;
         actualizar();
     }
+int personaje::getVida(){
+    return vida;
+}
+void personaje::setVida(int vida){
+    this -> vida = vida;
+}
 personaje::~personaje(){
     SDL_DestroyTexture(textura);
 }

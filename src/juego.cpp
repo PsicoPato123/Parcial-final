@@ -12,16 +12,19 @@
         paredderecha_up = {780, 400, 20, 200};
         paredderecha_down = {780, 0, 20, 200};
         caminando = true;
-        enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}));
-        enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}));
-        enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}));
-        enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}));
+
+        enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}, 50));
+        enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
+        enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
+        enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}, 180));
         izquierda = false;
         derecha = false;
         arriba = false;
         abajo = false;
         vida=100;
         damagetime=0;
+        ataque = false;
+        ataquehitbox = {0, 0, 35, 35};
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -55,6 +58,11 @@
         SDL_SetRenderDrawColor(renderer, 43, 255, 0, 255);
         SDL_RenderFillRect(renderer, &barravida);
 
+        if (ataque){
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            SDL_RenderFillRect(renderer, &ataquehitbox);
+        }
+
         SDL_RenderPresent (renderer);
     }; 
 
@@ -81,6 +89,9 @@
                 case SDLK_DOWN:
                     abajo= true;
                 break;
+                case SDLK_SPACE:
+                    ataque= true;
+                break;
                 }}
             if (event.type== SDL_KEYUP){
             switch (event.key.keysym.sym) {
@@ -96,6 +107,9 @@
                 case SDLK_DOWN:
                     abajo= false;
                 break;    
+                case SDLK_SPACE:
+                    ataque= false;
+                break;
             }; 
     }   }
     }
@@ -136,6 +150,11 @@
             std::cout << "No puedes pasar la pared" << std::endl;
         }
 
+        ataquehitbox.x = personaje1.getx() + 25;
+        ataquehitbox.y = personaje1.gety() + 25;
+        ataquehitbox.w = 35;
+        ataquehitbox.h = 35;
+
         for (int i = 0; i < enemigos.size(); i++) {
             oldenemx= enemigos[i].getx();
             oldenemy= enemigos[i].gety();   
@@ -153,6 +172,17 @@
                 enemigos[i].mover(0, -1);}
 
         SDL_Rect enemyHitbox= enemigos[i].getHitbox();
+        if (ataque && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)) {
+            int vidaenemiga = enemigos[i].getvida();
+            vidaenemiga -= 20;
+            enemigos[i].setvida(vidaenemiga);
+        }
+        if (enemigos[i].getvida() <= 0) {
+            enemigos.erase(enemigos.begin() + i);
+            i--;
+            continue;
+        }
+
         bool colisionenemiga= false;
         if (SDL_HasIntersection(&enemyHitbox, &paredarriba)) {
             colisionenemiga= true;
