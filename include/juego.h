@@ -25,6 +25,7 @@ public:
     void limpiar();  
     int vida;     
     int damagetime;
+    bool ataque;
 private:   
 personaje personaje1;
 std::vector<personaje> enemigos;
@@ -39,6 +40,6 @@ int oldx;
 int oldy;
 int oldenemx;
 int oldenemy;
-
+SDL_Rect ataquehitbox;
 }; 
 #endif // JUEGO_H

@@ -44,9 +44,17 @@
         SDL_RenderFillRect(renderer, &paredderecha_up);
         SDL_RenderFillRect(renderer, &paredderecha_down); 
         personaje1.dibujar(renderer);
+        
         for (int i = 0; i < enemigos.size(); i++) {
-        enemigos[i].dibujar(renderer);
-        }
+        enemigos[i].dibujar(renderer);}
+        
+        SDL_Rect barravida = {10, 10, vida * 2, 20};
+        SDL_Rect fondoVida = {10, 10, 200, 20};
+        SDL_SetRenderDrawColor(renderer, 8, 7, 7, 255);
+        SDL_RenderFillRect(renderer, &fondoVida);
+        SDL_SetRenderDrawColor(renderer, 43, 255, 0, 255);
+        SDL_RenderFillRect(renderer, &barravida);
+
         SDL_RenderPresent (renderer);
     }; 
 
@@ -164,6 +172,7 @@
         if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
         if (damagetime ==0){
             vida -= 10;
+            if (vida < 0) vida = 0;
             damagetime=60;
             std::cout << "Te han pateado :c\n Vida restante: " << vida << std::endl;
         }
