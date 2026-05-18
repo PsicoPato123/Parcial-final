@@ -135,9 +135,12 @@
             enemigo1.mover(0, 1);
         }
         if (enemigo1.gety() > personaje1.gety()){
-            enemigo1.mover(0, -1);
-        }
-    }
+            enemigo1.mover(0, -1);}
+    SDL_Rect enemyHitbox= enemigo1.getHitbox();
+    if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
+        caminando= false;
+        std::cout << "Te han desplumado.\n Fin del juego X.X" << std::endl;
+    }  }
 
     juego::~juego(){
         SDL_DestroyRenderer(renderer);
