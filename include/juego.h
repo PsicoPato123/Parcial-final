@@ -37,5 +37,7 @@ SDL_Rect paredderecha_up;
 SDL_Rect paredderecha_down;
 int oldx;
 int oldy;
+int oldenemx;
+int oldenemy;
 }; 
 #endif // JUEGO_H

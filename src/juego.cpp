@@ -33,7 +33,8 @@
     }  }
 
     void juego::mostrar(){
-
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        SDL_RenderClear(renderer);
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderFillRect(renderer, &paredarriba);
         SDL_RenderFillRect(renderer, &paredabajo);      
@@ -42,7 +43,7 @@
         SDL_RenderFillRect(renderer, &paredderecha_down); 
         personaje1.dibujar(renderer);
         for (int i = 0; i < enemigos.size(); i++) {
-            enemigos[i].dibujar(renderer);
+        enemigos[i].dibujar(renderer);
         }
         SDL_RenderPresent (renderer);
     }; 
@@ -102,6 +103,7 @@
         if (abajo) {
             personaje1.mover(0, 1);
         }
+
         SDL_Rect playerHitbox= personaje1.getHitbox();
         bool colision= false;
         if (SDL_HasIntersection(&playerHitbox, &paredarriba)) { 
@@ -120,27 +122,41 @@
             colision= true;
             std::cout << "No puedes pasar la pared" << std::endl;
         }
-        if (colision) {
-            personaje1.setx(oldx);
-            personaje1.sety(oldy);
-        }
 
         for (int i = 0; i < enemigos.size(); i++) {
-            personaje& enemigo = enemigos[i];
-        if (enemigos[i].getx() < personaje1.getx()) {
-            enemigos[i].mover(1, 0);
-        }
-        if (enemigos[i].getx() > personaje1.getx()) {
-            enemigos[i].mover(-1, 0);
-        }
-        if (enemigos[i].gety() < personaje1.gety()){
-            enemigos[i].mover(0, 1);
-        }
-        if (enemigos[i].gety() > personaje1.gety()){
-            enemigos[i].mover(0, -1);}
+            oldenemx= enemigos[i].getx();
+            oldenemy= enemigos[i].gety();   
 
-    SDL_Rect enemyHitbox= enemigos[i].getHitbox();
-    if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
+            if (enemigos[i].getx() < personaje1.getx()) {
+                enemigos[i].mover(1, 0);
+            }
+            if (enemigos[i].getx() > personaje1.getx()) {
+            enemigos[i].mover(-1, 0);
+            }
+            if (enemigos[i].gety() < personaje1.gety()){
+                enemigos[i].mover(0, 1);
+            }
+            if (enemigos[i].gety() > personaje1.gety()){
+                enemigos[i].mover(0, -1);}
+
+        SDL_Rect enemyHitbox= enemigos[i].getHitbox();
+        bool colisionenemiga= false;
+        if (SDL_HasIntersection(&enemyHitbox, &paredarriba)) {
+            colisionenemiga= true;
+        }
+        if (SDL_HasIntersection(&enemyHitbox, &paredabajo)) {
+            colisionenemiga= true;
+        }
+        if (SDL_HasIntersection(&enemyHitbox, &paredderecha_up) || SDL_HasIntersection(&enemyHitbox, &paredderecha_down)) {
+            colisionenemiga= true;
+        }
+        if (SDL_HasIntersection(&enemyHitbox, &paredizquierda)) {
+            colisionenemiga= true;
+        }
+        if (colisionenemiga) {
+            enemigos[i].setx(oldenemx);
+            enemigos[i].sety(oldenemy); }
+        if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
         caminando= false;
         std::cout << "Te han desplumado.\n Fin del juego X.X" << std::endl;
     }  }}
