@@ -29,5 +29,7 @@ SDL_Rect paredizquierda;
 SDL_Rect paredderecha;
 SDL_Rect paredderecha_up;
 SDL_Rect paredderecha_down;
+int oldx;
+int oldy;
 }; 
 #endif // JUEGO_H

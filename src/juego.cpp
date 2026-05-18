@@ -42,27 +42,28 @@ void juego::mostrar(){
 
 void juego::teclado() {
     SDL_Event event;
+
     while (SDL_PollEvent(&event)) {
         if(event.type == SDL_QUIT){
-             caminando = false; 
+             caminando= false; 
                 }
-        if (event.type == SDL_KEYDOWN) {
-            if (event.key.keysym.sym == SDLK_ESCAPE) {
-                caminando = false;
-            }
-            switch (event.key.keysym.sym) {
-                case SDLK_LEFT:
-                    personaje1.mover(-1, 0);
-                break;
-                case SDLK_RIGHT:
-                    personaje1.mover(1, 0);
-                break;
-                case SDLK_UP:
-                    personaje1.mover(0, -1);
-                break;
-                case SDLK_DOWN:
-                    personaje1.mover(0, 1);
-                break;
+        if (event.type== SDL_KEYDOWN) {
+               oldx= personaje1.getx();
+                oldy= personaje1.gety();
+
+        switch (event.key.keysym.sym) {
+            case SDLK_LEFT:
+                personaje1.mover(-1, 0);
+            break;
+            case SDLK_RIGHT:
+                personaje1.mover(1, 0);
+            break;
+            case SDLK_UP:
+                personaje1.mover(0, -1);
+            break;
+            case SDLK_DOWN:
+                personaje1.mover(0, 1);
+            break;
             }
         }
     }
@@ -70,18 +71,27 @@ void juego::teclado() {
 
 
 void juego::actualizar() {
-    SDL_Rect playerHitbox = personaje1.getHitbox();
+    SDL_Rect playerHitbox= personaje1.getHitbox();
+    bool colision= false;
     if (SDL_HasIntersection(&playerHitbox, &paredarriba)) { 
+        colision= true;
         std::cout << "No puedes pasar la pared" << std::endl;
     }
     if (SDL_HasIntersection(&playerHitbox, &paredabajo)) {
+        colision= true;
         std::cout << "No puedes pasar la pared" << std::endl;
     }
     if (SDL_HasIntersection(&playerHitbox, &paredderecha_up) || SDL_HasIntersection(&playerHitbox, &paredderecha_down)) {
+        colision= true;
         std::cout << "No puedes pasar la pared" << std::endl;
     }
     if (SDL_HasIntersection(&playerHitbox, &paredizquierda)) {
+        colision= true;
         std::cout << "No puedes pasar la pared" << std::endl;
+    }
+    if (colision) {
+        personaje1.setx(oldx);
+        personaje1.sety(oldy);
     }
 }
 
