@@ -10,6 +10,10 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     bool caminando; 
+    bool izquierda; 
+    bool derecha;
+    bool arriba;
+    bool abajo;    
 
 public:
    juego();

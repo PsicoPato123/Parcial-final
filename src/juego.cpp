@@ -12,6 +12,10 @@ juego::juego() : personaje1(300, 250, 5, nullptr) {
     paredderecha_up = {780, 400, 20, 200};
     paredderecha_down = {780, 0, 20, 200};
     caminando = true;
+    izquierda = false;
+    derecha = false;
+    arriba = false;
+    abajo = false;
 }
 void juego ::inicializar() {
     SDL_RenderPresent(renderer);
@@ -47,30 +51,55 @@ void juego::teclado() {
         if(event.type == SDL_QUIT){
              caminando= false; 
                 }
+            oldx= personaje1.getx();
+            oldy= personaje1.gety();
         if (event.type== SDL_KEYDOWN) {
-               oldx= personaje1.getx();
-                oldy= personaje1.gety();
-
         switch (event.key.keysym.sym) {
             case SDLK_LEFT:
-                personaje1.mover(-1, 0);
+                izquierda= true;
             break;
             case SDLK_RIGHT:
-                personaje1.mover(1, 0);
+                derecha= true;
             break;
             case SDLK_UP:
-                personaje1.mover(0, -1);
+                arriba= true;
             break;
             case SDLK_DOWN:
-                personaje1.mover(0, 1);
+                abajo= true;
             break;
-            }
-        }
-    }
+            }}
+        if (event.type== SDL_KEYUP){
+        switch (event.key.keysym.sym) {
+            case SDLK_LEFT:
+                izquierda= false;
+            break;
+            case SDLK_RIGHT:        
+                derecha= false;
+            break;
+            case SDLK_UP:
+                arriba= false;
+            break;
+            case SDLK_DOWN:
+                abajo= false;
+            break;    
+        }; 
+   }   }
 }
 
 
 void juego::actualizar() {
+    if (izquierda) {
+        personaje1.mover(-1, 0);
+    }
+    if (derecha) {
+        personaje1.mover(1, 0);
+    }
+    if (arriba) {
+        personaje1.mover(0, -1);
+    }
+    if (abajo) {
+        personaje1.mover(0, 1);
+    }
     SDL_Rect playerHitbox= personaje1.getHitbox();
     bool colision= false;
     if (SDL_HasIntersection(&playerHitbox, &paredarriba)) { 
