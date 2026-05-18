@@ -3,7 +3,7 @@
 #define JUEGO_H
 #include <SDL2/SDL.h>
 #include "personaje.h"
-
+#include <vector>
 
 class juego {
 private:
@@ -26,7 +26,7 @@ public:
         
 private:   
 personaje personaje1;
-personaje enemigo1;
+std::vector<personaje> enemigos;
 
 ~juego();
 SDL_Rect paredarriba;

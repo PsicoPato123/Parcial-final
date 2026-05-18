@@ -2,7 +2,7 @@
     #include <iostream>
     #include "personaje.h"
 
-    juego::juego() : personaje1(300, 250, 5, nullptr), enemigo1(00, 250, 5, nullptr) {
+    juego::juego() : personaje1(300, 250, 5, nullptr){
         SDL_Init(SDL_INIT_VIDEO);
         window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -12,6 +12,10 @@
         paredderecha_up = {780, 400, 20, 200};
         paredderecha_down = {780, 0, 20, 200};
         caminando = true;
+        enemigos.push_back(personaje(100,100,2,nullptr));
+        enemigos.push_back(personaje(245,175,4,nullptr));
+        enemigos.push_back(personaje(300,200,3,nullptr));
+        enemigos.push_back(personaje(450,50,1,nullptr));
         izquierda = false;
         derecha = false;
         arriba = false;
@@ -41,8 +45,9 @@
 
         SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
         personaje1.dibujar(renderer);
-        SDL_SetRenderDrawColor(renderer, 149, 159, 233, 255);
-        enemigo1.dibujar(renderer);
+        for (int i = 0; i < enemigos.size(); i++) {
+            enemigos[i].dibujar(renderer);
+        }
         SDL_RenderPresent (renderer);
     }; 
 
@@ -88,7 +93,6 @@
     }   }
     }
 
-
     void juego::actualizar() {
         if (izquierda) {
             personaje1.mover(-1, 0);
@@ -125,22 +129,25 @@
             personaje1.sety(oldy);
         }
 
-        if (enemigo1.getx() < personaje1.getx()) {
-            enemigo1.mover(1, 0);
+        for (int i = 0; i < enemigos.size(); i++) {
+            personaje& enemigo = enemigos[i];
+        if (enemigos[i].getx() < personaje1.getx()) {
+            enemigos[i].mover(1, 0);
         }
-        if (enemigo1.getx() > personaje1.getx()) {
-            enemigo1.mover(-1, 0);
+        if (enemigos[i].getx() > personaje1.getx()) {
+            enemigos[i].mover(-1, 0);
         }
-        if (enemigo1.gety() < personaje1.gety()){
-            enemigo1.mover(0, 1);
+        if (enemigos[i].gety() < personaje1.gety()){
+            enemigos[i].mover(0, 1);
         }
-        if (enemigo1.gety() > personaje1.gety()){
-            enemigo1.mover(0, -1);}
-    SDL_Rect enemyHitbox= enemigo1.getHitbox();
+        if (enemigos[i].gety() > personaje1.gety()){
+            enemigos[i].mover(0, -1);}
+
+    SDL_Rect enemyHitbox= enemigos[i].getHitbox();
     if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
         caminando= false;
         std::cout << "Te han desplumado.\n Fin del juego X.X" << std::endl;
-    }  }
+    }  }}
 
     juego::~juego(){
         SDL_DestroyRenderer(renderer);
