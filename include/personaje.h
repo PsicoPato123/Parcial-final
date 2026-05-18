@@ -15,10 +15,12 @@ public:
     void mover (int dx, int dy);
     void actualizar();
     void dibujar (SDL_Renderer* renderer);
-    ~personaje();
     SDL_Rect getHitbox ();
-
-
+    int getx();
+    int gety();
+    void setx(int x);
+    void sety(int y);
+    ~personaje();
 };
 
 #endif // PERSONAJE_H

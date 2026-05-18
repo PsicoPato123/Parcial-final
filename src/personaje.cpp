@@ -28,6 +28,20 @@ void personaje::actualizar() {
     hitbox.x = x;
     hitbox.y = y;
 }   
+ int personaje::getx(){
+    return x;
+    }
+    int personaje::gety(){
+        return y;
+    }
+    void personaje::setx(int x){
+        this -> x = x;
+        actualizar();
+    }
+    void personaje::sety(int y){
+        this -> y = y;
+        actualizar();
+    }
 personaje::~personaje(){
     SDL_DestroyTexture(textura);
 }
