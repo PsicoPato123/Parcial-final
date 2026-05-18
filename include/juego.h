@@ -26,6 +26,8 @@ public:
         
 private:   
 personaje personaje1;
+personaje enemigo1;
+
 ~juego();
 SDL_Rect paredarriba;
 SDL_Rect paredabajo;
