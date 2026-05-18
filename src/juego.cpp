@@ -2,7 +2,7 @@
     #include <iostream>
     #include "personaje.h"
 
-    juego::juego() : personaje1(300, 250, 5, nullptr){
+    juego::juego() : personaje1(300, 250, 5, nullptr, {237, 249, 67, 237}) {
         SDL_Init(SDL_INIT_VIDEO);
         window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -12,10 +12,10 @@
         paredderecha_up = {780, 400, 20, 200};
         paredderecha_down = {780, 0, 20, 200};
         caminando = true;
-        enemigos.push_back(personaje(100,100,2,nullptr));
-        enemigos.push_back(personaje(245,175,4,nullptr));
-        enemigos.push_back(personaje(300,200,3,nullptr));
-        enemigos.push_back(personaje(450,50,1,nullptr));
+        enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}));
+        enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}));
+        enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}));
+        enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}));
         izquierda = false;
         derecha = false;
         arriba = false;
@@ -33,17 +33,13 @@
     }  }
 
     void juego::mostrar(){
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
-        SDL_RenderClear(renderer);
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderFillRect(renderer, &paredarriba);
         SDL_RenderFillRect(renderer, &paredabajo);      
         SDL_RenderFillRect(renderer, &paredizquierda);
         SDL_RenderFillRect(renderer, &paredderecha_up);
-        SDL_RenderFillRect(renderer, &paredderecha_down);
-
-        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
+        SDL_RenderFillRect(renderer, &paredderecha_down); 
         personaje1.dibujar(renderer);
         for (int i = 0; i < enemigos.size(); i++) {
             enemigos[i].dibujar(renderer);

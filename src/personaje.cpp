@@ -2,11 +2,12 @@
 #include <cstdlib>
 #include <iostream>
 
-personaje::personaje(int x, int y, int velocidad, SDL_Texture* textura) {
+personaje::personaje(int x, int y, int velocidad, SDL_Texture* textura, SDL_Color color) {
     this -> x = x;
     this -> y = y;
     this -> velocidad = velocidad;
     this -> textura = textura;
+    this -> color = color;
     hitbox.x = x;
     hitbox.y = y;
     hitbox.w = 50; 
@@ -18,6 +19,7 @@ void personaje::mover(int dx, int dy) {
     actualizar();
 }
 void personaje::dibujar(SDL_Renderer* renderer) {
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     SDL_RenderFillRect(renderer, &hitbox);
 }   
 void personaje::actualizar() {

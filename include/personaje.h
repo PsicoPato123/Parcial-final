@@ -9,9 +9,10 @@ private:
     int velocidad;
     SDL_Texture* textura;
     SDL_Rect hitbox;
+    SDL_Color color;
 
 public: 
-    personaje(int x, int y, int velocidad, SDL_Texture* textura);
+    personaje(int x, int y, int velocidad, SDL_Texture* textura, SDL_Color color);
     void mover (int dx, int dy);
     void actualizar();
     void dibujar (SDL_Renderer* renderer);
