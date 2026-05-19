@@ -13,6 +13,7 @@ personaje::personaje(int x, int y, int velocidad, SDL_Texture* textura, SDL_Colo
     hitbox.y = y;
     hitbox.w = 50; 
     hitbox.h = 50;
+    bool activo = true; 
 }
 void personaje::mover(int dx, int dy) {
     x += dx * velocidad;

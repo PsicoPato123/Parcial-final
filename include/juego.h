@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include "personaje.h"
 #include <vector>
+#include "mundos.h"
 
 class juego {
 private:
@@ -27,6 +28,10 @@ public:
     int damagetime;
     bool ataque;
     int lvlluz; 
+    enum estado_jugador{
+    vivo, muerto, en_transicion
+    };
+    estado_jugador estado;
 private:   
     personaje personaje1;
     std::vector<personaje> enemigos;
@@ -46,6 +51,6 @@ private:
     int direccionx;
     int direcciony;
     void vuelta_ala_tierra();
-    bool reset;    
+    std::vector<int> memorias;
 }; 
 #endif // JUEGO_H

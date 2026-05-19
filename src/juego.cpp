@@ -1,6 +1,7 @@
     #include "juego.h"
     #include <iostream>
     #include "personaje.h"
+    #include "mundos.h"
 
     juego::juego() : personaje1(300, 250, 5, nullptr, {237, 249, 67, 237}) {
         SDL_Init(SDL_INIT_VIDEO);
@@ -29,7 +30,7 @@
         direccionx=1;
         direcciony=0;
         lvlluz=0;
-        reset= false;
+        estado = vivo; 
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -85,7 +86,7 @@
             SDL_SetRenderDrawColor(renderer, 5, 5, 0, 255);
         }
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, lvlluz * 40);
-        SDL_Rect oscuridad = {0, 0, 850, 600};
+        SDL_Rect oscuridad = {0, 0, 750, 600};
         SDL_RenderFillRect(renderer, &oscuridad);
 
         SDL_RenderPresent (renderer);
@@ -244,28 +245,33 @@
         if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
         if (damagetime ==0){
             vida -= 10;
-        if (vida < 0) vida = 0;
+
+        if (vida <= 0 && estado == vivo) {
+            vida=0;
             damagetime=60;
+            estado = muerto;
             std::cout << "Te han pateado :c\nLuz restante: " << vida << std::endl;
-        }
-        if (vida <= 0 && damagetime == 0) {
             vuelta_ala_tierra();
-        std::cout << "Te han desplumado X.X \n Regresando a la Tierra" << std::endl;
-    }  }} }
+        }
+        if (muerto){
+            return;
+        }
+        
+    }} }}
 
     void juego::vuelta_ala_tierra() {
+        memorias.push_back(lvlluz);
         lvlluz++;
-        if(lvlluz == 3) {
+        if(memorias.size() == 3) {
         std::cout<<"Siento que no debería estar aquí... " << std::endl;
         }
-        if (lvlluz == 2) {
+        if (memorias.size()== 2) {
         std::cout<<"Algo se siente diferente... " << std::endl;
         }
-        if (lvlluz == 1) {
+        if (memorias.size() == 1) {
         std::cout<<"La luz se aleja... " << std::endl;
         }
 
-        std::cout << "Saliendo de la luz... " << lvlluz << std::endl;
         personaje1.setx(300);
         personaje1.sety(250);
         vida = 100;
@@ -274,7 +280,6 @@
         enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
         enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
         enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}, 180));
-        
     }
 
      void juego::limpiar() {
