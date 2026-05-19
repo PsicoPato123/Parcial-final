@@ -52,14 +52,24 @@
         personaje1.dibujar(renderer);
         
         for (int i = 0; i < enemigos.size(); i++) {
-        enemigos[i].dibujar(renderer);}
+        enemigos[i].dibujar(renderer);
         
-        SDL_Rect barravida = {10, 10, vida * 2, 20};
-        SDL_Rect fondoVida = {10, 10, 200, 20};
+        SDL_Rect barra_vida_enemigo = {
+            enemigos[i].getx(),
+            enemigos[i].gety() - 10,
+            50 * enemigos[i].getvida() / 100,
+            5
+        };
+        SDL_Rect vida_enemigo = {
+            enemigos[i].getx(),
+            enemigos[i].gety() - 10,
+            enemigos[i].getvida() /2, 5 
+        };
+
         SDL_SetRenderDrawColor(renderer, 8, 7, 7, 255);
-        SDL_RenderFillRect(renderer, &fondoVida);
+        SDL_RenderFillRect(renderer, &vida_enemigo);
         SDL_SetRenderDrawColor(renderer, 43, 255, 0, 255);
-        SDL_RenderFillRect(renderer, &barravida);
+        SDL_RenderFillRect(renderer, &barra_vida_enemigo);} 
 
         if (ataque){
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -163,6 +173,10 @@
             colision= true;
             std::cout << "No puedes pasar la pared" << std::endl;
         }
+        if (colision) {
+            personaje1.setx(oldx);
+            personaje1.sety(oldy);
+        }
 
         ataquehitbox.x = personaje1.getx() + (direccionx * 40);
         ataquehitbox.y = personaje1.gety() + (direcciony * 40);
@@ -190,6 +204,7 @@
             int vidaenemiga = enemigos[i].getvida();
             vidaenemiga -= 20;
             enemigos[i].setvida(vidaenemiga);
+            enemigos[i].mover(direccionx * 20, direcciony * 20);
             cooldown = 30; 
         }
         if (enemigos[i].getvida() <= 0) {
