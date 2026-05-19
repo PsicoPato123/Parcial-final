@@ -141,6 +141,7 @@
     }
 
     void juego::actualizar() {
+        if (mundo.get_mundo_ctual() ==1)
         if (damagetime > 0) {
             damagetime--;
         }
@@ -253,7 +254,12 @@
             std::cout << "Te han pateado :c\nLuz restante: " << vida << std::endl;
             vuelta_ala_tierra();
         }
-        if (muerto){
+        if (enemigos.size() == 0) {
+            mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);
+            mundo.mensaje_historia();
+            vuelta_ala_tierra();
+}
+        if (estado == muerto){
             return;
         }
         
@@ -261,7 +267,11 @@
 
     void juego::vuelta_ala_tierra() {
         memorias.push_back(lvlluz);
-        lvlluz++;
+        mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);
+        mundo.mensaje_historia();
+
+        enemigos.clear();
+         mundo.aplicar_reglas(enemigos);
         if(memorias.size() == 3) {
         std::cout<<"Siento que no debería estar aquí... " << std::endl;
         }
@@ -275,12 +285,8 @@
         personaje1.setx(300);
         personaje1.sety(250);
         vida = 100;
-        enemigos.clear();
-        enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}, 50));
-        enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
-        enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
-        enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}, 180));
-    }
+        mundo.aplicar_reglas(enemigos);
+        }
 
      void juego::limpiar() {
         SDL_DestroyRenderer(renderer);

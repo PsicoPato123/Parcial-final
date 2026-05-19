@@ -31,7 +31,7 @@ public:
     enum estado_jugador{
     vivo, muerto, en_transicion
     };
-    estado_jugador estado;
+
 private:   
     personaje personaje1;
     std::vector<personaje> enemigos;
@@ -52,5 +52,10 @@ private:
     int direcciony;
     void vuelta_ala_tierra();
     std::vector<int> memorias;
+    estado_jugador estado;
+    mundo mundo;
+    bool dialogo = false;
+    int linea_dialogo = 0;
+    std::vector<std::string> dialogo_ctual;  
 }; 
 #endif // JUEGO_H
