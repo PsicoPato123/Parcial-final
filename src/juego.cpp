@@ -26,6 +26,8 @@
         ataque= false;
         ataquehitbox= {0, 0, 35, 35};
         cooldown=0;
+        direccionx=1;
+        direcciony=0;
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -124,15 +126,23 @@
     
         if (izquierda) {
             personaje1.mover(-1, 0);
+            direccionx= -1;
+            direcciony= 0;
         }
         if (derecha) {
             personaje1.mover(1, 0);
+            direccionx= 1;
+            direcciony= 0;
         }
         if (arriba) {
             personaje1.mover(0, -1);
+            direccionx= 0;
+            direcciony= -1;
         }
         if (abajo) {
             personaje1.mover(0, 1);
+            direccionx= 0;
+            direcciony= 1;
         }
 
         SDL_Rect playerHitbox= personaje1.getHitbox();
@@ -154,8 +164,8 @@
             std::cout << "No puedes pasar la pared" << std::endl;
         }
 
-        ataquehitbox.x = personaje1.getx() + 25;
-        ataquehitbox.y = personaje1.gety() + 25;
+        ataquehitbox.x = personaje1.getx() + (direccionx * 40);
+        ataquehitbox.y = personaje1.gety() + (direcciony * 40);
         ataquehitbox.w = 35;
         ataquehitbox.h = 35;
 
