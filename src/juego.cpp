@@ -88,37 +88,48 @@
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, lvlluz * 40);
         SDL_Rect oscuridad = {0, 0, 750, 600};
         SDL_RenderFillRect(renderer, &oscuridad);
+        if (dialogo) {
+            SDL_Rect caja = {50, 370, 600, 175};
 
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 200);
+            SDL_RenderFillRect(renderer, &caja);
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            SDL_RenderDrawRect(renderer, &caja);
+
+        }        
         SDL_RenderPresent (renderer);
     }; 
 
     void juego::teclado() {
         SDL_Event event;
 
-        while (SDL_PollEvent(&event)) {
+        while (SDL_PollEvent(&event)) {            
+            oldx= personaje1.getx();
+            oldy= personaje1.gety();
             if(event.type == SDL_QUIT){
-                caminando= false; 
-                    }
-                oldx= personaje1.getx();
-                oldy= personaje1.gety();
+                caminando= false;  }
+
             if (event.type== SDL_KEYDOWN) {
-            switch (event.key.keysym.sym) {
-                case SDLK_LEFT:
-                    izquierda= true;
-                break;
-                case SDLK_RIGHT:
-                    derecha= true;
-                break;
-                case SDLK_UP:
-                    arriba= true;
-                break;
-                case SDLK_DOWN:
-                    abajo= true;
-                break;
-                case SDLK_SPACE:
-                    ataque= true;
-                break;
-                }}
+                if (event.key.keysym. sym == SDLK_SPACE && dialogo){
+                    linea_dialogo ++;
+                    if (linea_dialogo >= dialogo_ctual.size()) {
+                    dialogo = false;
+                }
+                continue; }
+            if (!dialogo){
+                switch (event.key.keysym.sym){
+                    case SDLK_LEFT: izquierda = true; 
+                    break;
+                    case SDLK_RIGHT: derecha = true; 
+                    break;
+                    case SDLK_UP: arriba = true; 
+                    break;
+                    case SDLK_DOWN: abajo = true; 
+                    break;
+                    case SDLK_SPACE: ataque = true;
+                    break;
+                }
+            } }
             if (event.type== SDL_KEYUP){
             switch (event.key.keysym.sym) {
                 case SDLK_LEFT:
@@ -141,6 +152,7 @@
     }
 
     void juego::actualizar() {
+        if (dialogo) return;
         if (mundo.get_mundo_ctual() ==1)
         if (damagetime > 0) {
             damagetime--;
@@ -167,8 +179,7 @@
             personaje1.mover(0, 1);
             direccionx= 0;
             direcciony= 1;
-        }
-
+        }  
         SDL_Rect playerHitbox= personaje1.getHitbox();
         bool colision= false;
         if (SDL_HasIntersection(&playerHitbox, &paredarriba)) { 
@@ -254,22 +265,19 @@
             std::cout << "Te han pateado :c\nLuz restante: " << vida << std::endl;
             vuelta_ala_tierra();
         }
-        if (enemigos.size() == 0) {
-            mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);
-            mundo.mensaje_historia();
-            vuelta_ala_tierra();
-}
         if (estado == muerto){
             return;
-        }
-        
+        }   
     }} }}
 
     void juego::vuelta_ala_tierra() {
         memorias.push_back(lvlluz);
         mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);
-        mundo.mensaje_historia();
-
+        
+        dialogo_ctual= mundo.get_historia();
+        linea_dialogo=0;
+        dialogo=true;
+        
         enemigos.clear();
          mundo.aplicar_reglas(enemigos);
         if(memorias.size() == 3) {
@@ -285,7 +293,6 @@
         personaje1.setx(300);
         personaje1.sety(250);
         vida = 100;
-        mundo.aplicar_reglas(enemigos);
         }
 
      void juego::limpiar() {

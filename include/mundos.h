@@ -11,7 +11,7 @@ public:
     mundo();
     void cambiar_mundo(int nuevo);
     void aplicar_reglas(std::vector<personaje>& enemigos);
-    void mensaje_historia();
+    std::vector<std::string> get_historia(); 
     int get_mundo_ctual(){
         return mundoActual;
     };
@@ -26,6 +26,8 @@ private:
         std::string historia;
     };
     std::vector<nivel> nivel; 
+    bool mundo_cambio;
+    
 };
 
 #endif // MUNDOS_H

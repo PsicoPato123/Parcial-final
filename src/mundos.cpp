@@ -3,38 +3,59 @@
 mundo::mundo(){
     mundoActual = 0;
     mundoInicializado= false;
+    mundo_cambio = false;
 }
 void mundo:: cambiar_mundo(int neww){
     mundoActual = neww;
-    
+    mundoInicializado = true;
+    mundo_cambio = true;
 }
-void mundo::mensaje_historia() {
-    switch (mundoActual) {
-        case 0:
-            std::cout << "Iniciando sistema...\n";
-            break;
-        case 1:
-            std::cout << "La luz es bastante brillante...\n";
-            break;
-        case 2:
-            std::cout << "Algo me observa...\n";
-            break;
-        case 3:
-            std::cout << "El ambiente comienza a distorsionar...\n";
-            break;
-        case 4:
-            std::cout << "Los enemigos saben...\n";
-            break;
-        case 5:
-            std::cout << "No hay ni una voz... solo presencia...\n";
-            break;
-        case 6:
-            std::cout << "Recuerdos llegando...\n";
-            break;
-        case 7:
-            std::cout << "No debería haber llegado hasta aquí...\n";
-            break;
+std::vector<std::string> mundo::get_historia() {
+    if (mundoActual == 1){
+        return {
+            "Despierta...",
+            "Este lugar resulta desconocido",
+            "¿Por qué se siente un vacio?"
+        };
     }
+    if (mundoActual == 2){
+        return {
+            "La luz aún es brillante",
+            "Me da una buena sensación este lugar",
+            "Cuack! ^w^ ", 
+    };}
+    if (mundoActual == 3){
+        return{
+            "Algo me observa...",
+            "¿Hay alguien aquí?",
+            "Que extraño...",
+    };}
+    if (mundoActual == 4) {
+        return{
+            "El ambiente comienza a distorsionarse ...",
+            "Ya no se ve de la misma manera",
+            "¿Cuack?",
+    };}
+    if (mundoActual == 5) {
+        return{
+            "Los enemigos lo saben...",
+            "¿Qué es lo que yo debo saber?",
+            "Qué sucede?"
+    };}
+    if (mundoActual == 6){
+        return{
+             "No hay ni una voz, solo presencia",
+             "Es esto ... ¿Un recuerdo?",
+             "Debo salir..."
+        };
+    }
+    if (mundoActual == 7){
+        return{
+            "No debería haber llegado hasta aquí...",
+            "¿Eres tú...?",
+            "¿M-ma...Mamá?",
+        };}
+    return{};
 }
 void mundo::aplicar_reglas(std::vector<personaje>& enemigos) {
     enemigos.clear();
