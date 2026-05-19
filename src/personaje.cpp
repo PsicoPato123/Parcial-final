@@ -45,10 +45,10 @@ void personaje::actualizar() {
         this -> y = y;
         actualizar();
     }
-int personaje::getVida(){
+int personaje::getvida(){
     return vida;
 }
-void personaje::setVida(int vida){
+void personaje::setvida(int vida){
     this -> vida = vida;
 }
 personaje::~personaje(){

@@ -28,6 +28,8 @@
         cooldown=0;
         direccionx=1;
         direcciony=0;
+        lvlluz=0;
+        reset= false;
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -75,6 +77,16 @@
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             SDL_RenderFillRect(renderer, &ataquehitbox);
         }
+
+        if(lvlluz >=1){ 
+            SDL_SetRenderDrawColor(renderer, 25, 25, 0, 255);
+        }
+        if (lvlluz >=3){
+            SDL_SetRenderDrawColor(renderer, 5, 5, 0, 255);
+        }
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, lvlluz * 40);
+        SDL_Rect oscuridad = {0, 0, 850, 600};
+        SDL_RenderFillRect(renderer, &oscuridad);
 
         SDL_RenderPresent (renderer);
     }; 
@@ -234,13 +246,42 @@
             vida -= 10;
         if (vida < 0) vida = 0;
             damagetime=60;
-            std::cout << "Te han pateado :c\n Vida restante: " << vida << std::endl;
+            std::cout << "Te han pateado :c\nLuz restante: " << vida << std::endl;
         }
-        if (vida <= 0) {
-            caminando= false;
-        std::cout << "Te han desplumado.\n Fin del juego X.X" << std::endl;
+        if (vida <= 0 && damagetime == 0) {
+            vuelta_ala_tierra();
+        std::cout << "Te han desplumado X.X \n Regresando a la Tierra" << std::endl;
     }  }} }
 
+    void juego::vuelta_ala_tierra() {
+        lvlluz++;
+        if(lvlluz == 3) {
+        std::cout<<"Siento que no debería estar aquí... " << std::endl;
+        }
+        if (lvlluz == 2) {
+        std::cout<<"Algo se siente diferente... " << std::endl;
+        }
+        if (lvlluz == 1) {
+        std::cout<<"La luz se aleja... " << std::endl;
+        }
+
+        std::cout << "Saliendo de la luz... " << lvlluz << std::endl;
+        personaje1.setx(300);
+        personaje1.sety(250);
+        vida = 100;
+        enemigos.clear();
+        enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}, 50));
+        enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
+        enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
+        enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}, 180));
+        
+    }
+
+     void juego::limpiar() {
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+    }
     juego::~juego(){
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
