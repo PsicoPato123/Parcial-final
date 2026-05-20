@@ -44,6 +44,7 @@ void mundo::crearNivel (){
     niveles.push_back(n1);
 
     nivel n2;
+    n2.paredes=base;
     n2.paredes.push_back({200, 100, 200, 20});
     n2.paredes.push_back({200, 100, 20, 250});
     n2.Fondo = {48,171,169,225};
@@ -79,6 +80,7 @@ void mundo::crearNivel (){
     niveles.push_back(n3);
 
     nivel n4;
+    n4.paredes = base;
     n4.paredes.push_back({150, 150, 20, 300});
     n4.paredes.push_back({400, 150, 20, 300});
     n4.Fondo = {6,71,40,200};
@@ -122,6 +124,7 @@ void mundo::crearNivel (){
     niveles.push_back(n5);
 
     nivel n6;
+    n6.paredes=base;
     n6.paredes.push_back({200, 200, 20, 200});
     n6.paredes.push_back({200, 200, 400, 20});
     n6.paredes.push_back({580, 200, 20, 200});
@@ -140,6 +143,7 @@ void mundo::crearNivel (){
     niveles.push_back(n6);
 
     nivel n7;
+    n7.paredes=base;
     n7.paredes.push_back({100, 100, 600, 20});
     n7.paredes.push_back({100, 100, 20, 400});
     n7.paredes.push_back({680, 100, 20, 400});
@@ -158,6 +162,7 @@ void mundo::crearNivel (){
     niveles.push_back(n7);
 
     nivel n8;
+    n8.paredes=base;
     n8.paredes.push_back({530, 150, 20, 300});
     n8.paredes.push_back({250, 150, 300, 20});
     n8.paredes.push_back({250, 150, 20, 300});

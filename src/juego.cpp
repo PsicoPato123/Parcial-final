@@ -194,8 +194,8 @@
             if (!objetos[i].en_mano()) {
                 objetos[i].dibujar(renderer);
             } }
-        for (int i = 0; i < proyectiles.size(); i++) {
-            proyectiles[i].dibujar(renderer);
+        for (int j = 0; j < proyectiles.size(); j++) {
+            proyectiles[j].dibujar(renderer);
         }
 
         SDL_RenderPresent (renderer);
@@ -277,7 +277,7 @@
         }
          if (cooldown > 0) {
             cooldown--;}  
-         int oldx = personaje1.getx();
+        int oldx = personaje1.getx();
         int oldy = personaje1.gety();
         int dx = 0;
         int dy = 0;
@@ -312,8 +312,7 @@
             if (SDL_HasIntersection(&playerHitbox, &paredes_ctual[i])) {
             colision = true;
         break;
-    }
-}
+    } }
         ataquehitbox.x = personaje1.getx() + (direccionx * 40);
         ataquehitbox.y = personaje1.gety() + (direcciony * 40);
         ataquehitbox.w = 35;
@@ -327,74 +326,58 @@
             i --; }}
 
         for (int i = 0; i < enemigos.size(); i++) {
-            oldenemx= enemigos[i].getx();
-            oldenemy= enemigos[i].gety();   
+        SDL_Rect enemyHitbox = enemigos[i].getHitbox();
+        SDL_Rect playerHitbox = personaje1.getHitbox();
+        oldenemx = enemigos[i].getx();
+        oldenemy = enemigos[i].gety();
 
-            if (enemigos[i].getx() < personaje1.getx()) {
-                enemigos[i].mover(1, 0);
-            }
-            if (enemigos[i].getx() > personaje1.getx()) {
-            enemigos[i].mover(-1, 0);
-            }
-            if (enemigos[i].gety() < personaje1.gety()){
-                enemigos[i].mover(0, 1);
-            }
-            if (enemigos[i].gety() > personaje1.gety()){
-                enemigos[i].mover(0, -1);}
+        if (enemigos[i].getx() < personaje1.getx()) enemigos[i].mover(1, 0);
+        if (enemigos[i].getx() > personaje1.getx()) enemigos[i].mover(-1, 0);
+        if (enemigos[i].gety() < personaje1.gety()) enemigos[i].mover(0, 1);
+        if (enemigos[i].gety() > personaje1.gety()) enemigos[i].mover(0, -1);
 
-        SDL_Rect enemyHitbox= enemigos[i].getHitbox();
         for (int j = 0; j < proyectiles.size(); j++) {
-        SDL_Rect proyectilHitbox =
-        proyectiles[j].getHitbox();
-
-        if (SDL_HasIntersection(
-            &enemyHitbox,
-            &proyectilHitbox
-        )) {
-            enemigos[i].setvida(
-                enemigos[i].getvida() - 25
-            );
-            proyectiles.erase(
-                proyectiles.begin() + j
-            );
-            break;
-        }}
-        if (ataque && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)&& ataque && cooldown == 0) {
-            int vidaenemiga = enemigos[i].getvida();
-            vidaenemiga -= 20;
-            enemigos[i].setvida(vidaenemiga);
-            enemigos[i].mover(direccionx * 20, direcciony * 20);
-            cooldown = 30; 
-        }
+        SDL_Rect proyectilHitbox = proyectiles[j].getHitbox();
+        if (SDL_HasIntersection(&enemyHitbox, &proyectilHitbox)) {
+            enemigos[i].setvida(enemigos[i].getvida() - 25);
+            proyectiles.erase(proyectiles.begin() + j);
+            j--;
+        } }
+    if (ataque && cooldown == 0 && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)) {
+        enemigos[i].setvida(enemigos[i].getvida() - 20);
+        enemigos[i].mover(direccionx * 20, direcciony * 20);
+        cooldown = 30;
+    }
         if (enemigos[i].getvida() <= 0) {
             enemigos.erase(enemigos.begin() + i);
             i--;
             continue;
         }
-        bool colisionenemiga= false;
-            for (int i = 0; i < paredes_ctual.size(); i++) {
-                if (SDL_HasIntersection(&enemyHitbox, &paredes_ctual[i])) {
+        bool colisionenemiga = false;
+        for (int j = 0; j < paredes_ctual.size(); j++) {
+            if (SDL_HasIntersection(&enemyHitbox, &paredes_ctual[j])) {
                 colisionenemiga = true;
-        break;
-    } }
+                break;
+            }  }
         if (colisionenemiga) {
             enemigos[i].setx(oldenemx);
-            enemigos[i].sety(oldenemy); }
+            enemigos[i].sety(oldenemy);
+        }
         if (SDL_HasIntersection(&playerHitbox, &enemyHitbox)) {
-        if (damagetime ==0){
-            vida -= 10;
-            damagetime =60; }
-
+            if (damagetime == 0) {
+                vida -= 15;
+                damagetime = 60;
+            }  }
         if (vida <= 0 && estado == vivo) {
-            vida=0;
-            damagetime=60;
+            vida = 0;
             estado = muerto;
-            std::cout << "Te han pateado :c\nLuz restante: " << vida << std::endl;
             vuelta_ala_tierra();
-        }}}
+        }
+    }
         if (estado == muerto){
             return;
         } 
+
         if (enemigos.empty() && !dialogo) {
         bool puede_avanzar = con_enemigos || mundo_mapa.get_mundo_ctual() == 0;
         if (puede_avanzar) {
