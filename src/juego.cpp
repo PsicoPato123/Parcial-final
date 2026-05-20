@@ -23,7 +23,8 @@
         enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}, 50));
         enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
         enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
-        enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}, 180));
+        enemigos.push_back(personaje(450,50,1,nullptr, {70,83,77, 227}, 180));
+        enemigos.push_back(personaje(500,450, 3,nullptr, {255,202,173,255},350));
         izquierda = false;
         derecha = false;
         arriba = false;
@@ -42,7 +43,7 @@
         objeto_ctual = 0;
         objetos.push_back(objeto(200,200));
         objetos.push_back(objeto(150,250));
-        objetos.push_back(objeto(240,360));
+        objetos.push_back(objeto(250,360));
         objetos.push_back(objeto(50,50));
     }
     void juego ::inicializar() {
@@ -382,7 +383,7 @@
         dialogo=true;
         
         enemigos.clear();
-         mundo.aplicar_reglas(enemigos);
+        mundo.aplicar_reglas(enemigos, objetos);
         if(memorias.size() == 3) {
         std::cout<<"Siento que no debería estar aquí... " << std::endl;
         }
