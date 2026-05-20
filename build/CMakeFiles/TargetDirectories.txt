@@ -1,3 +1,0 @@
-/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles/DucklingLimbo.dir
-/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles/edit_cache.dir
-/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles/rebuild_cache.dir

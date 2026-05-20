@@ -7,7 +7,7 @@
     juego::juego() : personaje1(170, 250, 5, nullptr, {237, 249, 67, 237}) {
         SDL_Init(SDL_INIT_VIDEO);
         TTF_Init();
-        fuente = TTF_OpenFont ("../letras.TTF", 18);
+        fuente = TTF_OpenFont ("assets/letras.TTF", 18);
         if (!fuente){
             std::cout << TTF_GetError() << std::endl;
             std::cout<<"No hay una fuente cargada";

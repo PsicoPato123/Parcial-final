@@ -1,0 +1,31 @@
+Nombres: Valencia Gonzalez Sara Lucia
+
+Desarrollos innovadores implementados:
+-Dinámica narrativa para darle intriga al juego
+-SDL.TTF para crear textos dinámicos y "typing effects", agregando una fuente externa.
+-Estructura del personaje principal, ya que es un pato y sale más allá de un simple cuadrado,
+con los píxeles se genera la forma con medidas de color RGBA.
+
+
+#Compilacion para windows/linux/mac
+Este proyecto utiliza:
+- SDL2 
+- SDL2_ttf
+- Archivos de fuente .ttf
+- DLLs necesarias para ejecución en Windows
+
+# Requisitos mínimos:
+- CMake 3.10 o una versión mayor
+- Compilador C++ 
+- SDL2 instalado en el sistema
+
+# Paso a paso:
+En la terminal de preferencia y con el bash donde se encuentra el programa ingresar paso a paso los siguientes comandos:
+1. mkdir build
+2. cd build
+3. cmake ..
+4. cmake --build .
+
+#Casos especiales
+Windows:
+Se deben copiar los archivos ".dll" en la misma carpeta del ejecutable (.exe)

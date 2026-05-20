@@ -17,3 +17,9 @@ target_link_libraries(DucklingLimbo
     SDL2::SDL2
     SDL2_ttf::SDL2_ttf
 )
+add_custom_command(TARGET DucklingLimbo POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets
+    $<TARGET_FILE_DIR:DucklingLimbo>/assets )
+
+file (COPY assets DESTINATION ${CMAKE_BINARY_DIR})

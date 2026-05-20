@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o CMakeFiles/DucklingLimbo.dir/src/main.cpp.o CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o -o DucklingLimbo  /usr/lib/x86_64-linux-gnu/libSDL2.so /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so 
