@@ -9,13 +9,13 @@ mundo::mundo(){
     crearNivel();
 }
 void mundo:: cambiar_mundo(int neww){
+    if (neww < 0 || neww >= niveles.size()){
+        return; 
+    }
     mundoActual = neww;
     mundoInicializado = true;
     mundo_cambio = true;
-
-    if (mundoActual < 0 || mundoActual>= niveles.size()){
-    return;
-}}
+}
 
 std::vector<std::string> mundo::get_historia() {
 return niveles[mundoActual].historia;
@@ -165,9 +165,6 @@ void mundo::crearNivel (){
     personaje humano (500,450, 3,nullptr, {255,202,173,255},350);
     n8.enemigos.push_back(perro);
     n8.enemigos.push_back(humano);
-    n8.historia.push_back ("Ya lo entendí...");
-    n8.historia.push_back ("Debía decir adios...");
-    n8.historia.push_back ("Mamá: Ya puedes descansar...");
     objeto flor(50,50);
     objeto roca(150,250);
     objeto pluma(200,200);
@@ -177,6 +174,17 @@ void mundo::crearNivel (){
     n8.objetos.push_back(pluma);
     n8.objetos.push_back(huevo);
     niveles.push_back(n8);
+
+    nivel n9;
+    n9.paredes = {
+    };
+    n9.Fondo = {22,25,34,170};
+    n9.oscuridad=7;
+    n9.historia.push_back ("Ya lo entendí...");
+    n9.historia.push_back ("Debía decir adios...");
+    n9.historia.push_back ("Mamá: Ya puedes descansar...");
+    n9.historia.push_back ("Mamá: Ven con nosotros...");
+    niveles.push_back(n9);
 }
 SDL_Color mundo::getFondo(){
 return niveles[mundoActual].Fondo;

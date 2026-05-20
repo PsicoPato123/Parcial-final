@@ -19,12 +19,6 @@
         paredderecha_up = {780, 400, 20, 200};
         paredderecha_down = {780, 0, 20, 200};
         caminando = true;
-
-        enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}, 50));
-        enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
-        enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
-        enemigos.push_back(personaje(450,50,1,nullptr, {70,83,77, 227}, 180));
-        enemigos.push_back(personaje(500,450, 3,nullptr, {255,202,173,255},350));
         izquierda = false;
         derecha = false;
         arriba = false;
@@ -41,11 +35,13 @@
 
         conObjeto=false;
         objeto_ctual = 0;
-        objetos.push_back(objeto(200,200));
-        objetos.push_back(objeto(150,250));
-        objetos.push_back(objeto(250,360));
-        objetos.push_back(objeto(50,50));
+        
+        mundo.cambiar_mundo(0);
+        mundo.aplicar_reglas(enemigos,objetos,lvlluz);
+        dialogo_ctual= mundo.get_historia();
+        dialogo= true;
     }
+
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
     }
@@ -161,7 +157,7 @@
                 caminando= false;  }
 
             if (event.type== SDL_KEYDOWN) {
-                if (event.key.keysym. sym == SDLK_SPACE && dialogo){
+                if (event.key.keysym. sym == SDLK_c && dialogo){
                     linea_dialogo ++;
                     if (linea_dialogo >= dialogo_ctual.size()) {
                     dialogo = false;
@@ -180,9 +176,9 @@
                     break;
                     case SDLK_DOWN: abajo = true; 
                     break;
-                    case SDLK_SPACE: ataque = true;              
-            if (conObjeto){
-                objeto nuevo(
+                    case SDLK_e: ataque = true;              
+                    if (conObjeto){
+                    objeto nuevo(
                     personaje1.getx(),
                     personaje1.gety()
                 );
@@ -209,7 +205,7 @@
                 case SDLK_DOWN:
                     abajo= false;
                 break;    
-                case SDLK_SPACE:
+                case SDLK_e:
                     ataque= false;
                 break;
             }; 
@@ -227,10 +223,9 @@
                 chars_mostrados++;
             } }
         };
-        if (mundo.get_mundo_ctual() ==1){
         if (damagetime > 0) {
             damagetime--;
-        }}
+        }
          if (cooldown > 0) {
             cooldown--;}  
     
@@ -298,7 +293,7 @@
             if (!proyectiles[i].lanzando()){
                 proyectiles.erase(
                     proyectiles.begin() +i);
-            }}
+            i --; }}
 
         for (int i = 0; i < enemigos.size(); i++) {
             oldenemx= enemigos[i].getx();
@@ -380,8 +375,11 @@
 
     void juego::vuelta_ala_tierra() {
         memorias.push_back(lvlluz);
-        if (mundo.get_mundo_ctual() <7) {
+        if (mundo.get_mundo_ctual() <8) {
         mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);}
+        else {
+            caminando=false;
+        }
         
         dialogo_ctual= mundo.get_historia();
         linea_dialogo=0;
@@ -402,8 +400,10 @@
         personaje1.setx(300);
         personaje1.sety(250);
         vida = 100;
-        }
-
+        
+        
+    }
+        
      void juego::limpiar() {
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);

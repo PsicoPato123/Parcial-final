@@ -51,7 +51,9 @@ int objeto::gety() {
 }
 void objeto::setx(int x) {
     this->x = x;
+    hitbox.x=x;
 }
 void objeto::sety(int y) {
     this->y = y;
+    hitbox.y=y;
 }
