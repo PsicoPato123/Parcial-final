@@ -1,0 +1,3 @@
+/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles/DucklingLimbo.dir
+/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles/rebuild_cache.dir
