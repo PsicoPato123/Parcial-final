@@ -25,6 +25,7 @@ public:
     int getvida();
     void setvida(int vida);
     ~personaje();
+    int getvelocidad();
 };
 
 #endif // PERSONAJE_H

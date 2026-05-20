@@ -13,13 +13,13 @@ personaje::personaje(int x, int y, int velocidad, SDL_Texture* textura, SDL_Colo
     hitbox.y = y;
     hitbox.w = 50; 
     hitbox.h = 50;
-    bool activo = true; 
-}
+    }
 void personaje::mover(int dx, int dy) {
     x += dx * velocidad;
     y += dy * velocidad;
     actualizar();
 }
+
 void personaje::dibujar(SDL_Renderer* renderer) {
     SDL_Rect cuerpo = {x, y + 15, 40, 30};
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
@@ -45,7 +45,9 @@ void personaje::dibujar(SDL_Renderer* renderer) {
     SDL_RenderFillRect(renderer, &pata1);
     SDL_RenderFillRect(renderer, &pata2);
 }
-
+int personaje::getvelocidad() {
+    return velocidad;
+}
 void personaje::actualizar() {
     if (x < 0) x = 0;
     if (y < 0) y = 0;
@@ -53,6 +55,8 @@ void personaje::actualizar() {
     if (y > 550) y = 550;    
     hitbox.x = x;
     hitbox.y = y;
+    hitbox.w = 50;
+    hitbox.h = 50;
 }   
  int personaje::getx(){
     return x;

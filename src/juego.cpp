@@ -205,111 +205,99 @@
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
-        oldx = personaje1.getx();
-        oldy = personaje1.gety();
-
-        if (event.type == SDL_QUIT) {
+            if (event.type == SDL_QUIT) {
             caminando = false;
         }
-
-        if (event.type == SDL_KEYDOWN) {
-            if (inicio && event.key.keysym.sym == SDLK_RETURN) {
+            if(event.type==SDL_KEYDOWN){
+                if (inicio && event.key.keysym.sym == SDLK_RETURN) {
                 inicio = false;
                 continue;
             }
             if (event.key.keysym.sym == SDLK_c && dialogo) {
                 linea_dialogo++;
                 if (linea_dialogo >= dialogo_ctual.size()) {
-                    dialogo = false;
-                } else {
-                    chars_mostrados = 0;
-                    tiempo_escribiendo = 0;
-                }
+                    dialogo = false;}
                 continue;
             }
-            if (!dialogo) {
-                switch (event.key.keysym.sym) {
-                    case SDLK_LEFT:  izquierda = true; 
+            switch (event.key.keysym.sym) {
+                case SDLK_LEFT:   
+                izquierda = true;
+                break;
+                case SDLK_RIGHT: 
+                derecha = true; 
+                break;
+                case SDLK_UP:    
+                arriba = true; 
+                break;
+                case SDLK_DOWN:  
+                abajo = true; 
+                break;
+                case SDLK_e:
+                    ataque = true;
                     break;
-                    case SDLK_RIGHT: derecha = true;  
-                    break;
-                    case SDLK_UP:    arriba = true;    
-                    break;
-                    case SDLK_DOWN:  abajo = true;     
-                    break;
-                    case SDLK_e:
-                        ataque = true;
-                        if (conObjeto) {
-                            objeto nuevo(personaje1.getx(), personaje1.gety());
-                            nuevo.lanzar(direccionx, direcciony);
-                            proyectiles.push_back(nuevo);
-                            conObjeto = false;
-                        }
-                        break;
-                    case SDLK_n: 
-                    vuelta_ala_tierra();
-                     break;
-                }}}
-
+            }
+        }
         if (event.type == SDL_KEYUP) {
             switch (event.key.keysym.sym) {
                 case SDLK_LEFT:  
                 izquierda = false; 
                 break;
                 case SDLK_RIGHT: 
-                derecha = false;   
+                derecha = false; 
                 break;
                 case SDLK_UP:    
-                arriba = false;   
+                arriba = false; 
                 break;
-                case SDLK_DOWN:
-                abajo = false;    
+                case SDLK_DOWN:  
+                abajo = false; 
                 break;
-                case SDLK_e:
-                ataque = false;    
-                break;
-            }
-        }
-    }
-}
-    void juego::actualizar() {
-        if (dialogo){
-            tiempo_escribiendo ++;
+                case SDLK_e:     
+                ataque = false;
+                if (conObjeto) {
+                    objeto nuevo(personaje1.getx(), personaje1.gety());
+                    nuevo.lanzar(direccionx, direcciony);
+                    proyectiles.push_back(nuevo);
+                    conObjeto = false;
+                }
+                 break;}
+        } }   } 
 
+    void juego::actualizar() {
+
+        if (dialogo && !dialogo_ctual.empty() && linea_dialogo < dialogo_ctual.size()){
+            tiempo_escribiendo++;
             if (tiempo_escribiendo >= delay_escritura){
             tiempo_escribiendo = 0;
-            
-            if (chars_mostrados < dialogo_ctual[linea_dialogo].size()){
-                chars_mostrados++;
-            } }
-        };
+        if (chars_mostrados < dialogo_ctual[linea_dialogo].size()){
+            chars_mostrados++;
+        }
+        } }
         if (damagetime > 0) {
             damagetime--;
         }
          if (cooldown > 0) {
             cooldown--;}  
-        if (izquierda) {
-            personaje1.mover(-1, 0);
-            direccionx= -1;
-            direcciony= 0;
+         int oldx = personaje1.getx();
+        int oldy = personaje1.gety();
+        int dx = 0;
+        int dy = 0;
+
+        if (izquierda) dx -= personaje1.getvelocidad();
+        if (derecha)  dx += personaje1.getvelocidad();
+        if (arriba)   dy -= personaje1.getvelocidad();
+        if (abajo)    dy += personaje1.getvelocidad();
+        personaje1.mover(dx, dy);
+        SDL_Rect playerHitbox = personaje1.getHitbox();
+        bool colision = false;
+        for (int i = 0; i < paredes_ctual.size(); i++) {
+            if (SDL_HasIntersection(&playerHitbox, &paredes_ctual[i])) {
+                colision = true;
+                break;
+            } }
+        if (colision) {
+            personaje1.setx(oldx);
+            personaje1.sety(oldy);
         }
-        if (derecha) {
-            personaje1.mover(1, 0);
-            direccionx= 1;
-            direcciony= 0;
-        }
-        if (arriba) {
-            personaje1.mover(0, -1);
-            direccionx= 0;
-            direcciony= -1;
-        }
-        if (abajo) {
-            personaje1.mover(0, 1);
-            direccionx= 0;
-            direcciony= 1;
-        }  
-        SDL_Rect playerHitbox= personaje1.getHitbox();
-        
         for (int i = 0; i < objetos.size(); i++) {
             if (!objetos[i].en_mano()) {
             SDL_Rect objetoHitbox = objetos[i].getHitbox();
@@ -320,18 +308,12 @@
             std::cout << "Objeto en el ala\n";
         } }
 }
-        bool colision= false;
         for (int i = 0; i < paredes_ctual.size(); i++) {
             if (SDL_HasIntersection(&playerHitbox, &paredes_ctual[i])) {
             colision = true;
         break;
     }
 }
-        if (colision) {
-            personaje1.setx(oldx);
-            personaje1.sety(oldy);
-        }
-
         ataquehitbox.x = personaje1.getx() + (direccionx * 40);
         ataquehitbox.y = personaje1.gety() + (direcciony * 40);
         ataquehitbox.w = 35;
@@ -413,21 +395,27 @@
         if (estado == muerto){
             return;
         } 
-        if (enemigos.empty() && !dialogo && con_enemigos) {
+        if (enemigos.empty() && !dialogo) {
+        bool puede_avanzar = con_enemigos || mundo_mapa.get_mundo_ctual() == 0;
+        if (puede_avanzar) {
+        if (mundo_mapa.get_mundo_ctual() < 8) {
+            std::cout << "mundo: " << mundo_mapa.get_mundo_ctual() 
+              << " nivel_tenia_enemigos: " << con_enemigos
+              << " dialogo: " << dialogo << std::endl;
             mundo_mapa.cambiar_mundo(mundo_mapa.get_mundo_ctual() + 1);
             dialogo_ctual = mundo_mapa.get_historia();
             linea_dialogo = 0;
             chars_mostrados = 0;
             dialogo = true;
-            enemigos.clear();
             mundo_mapa.aplicar_reglas(enemigos, objetos, lvlluz);
             con_enemigos = !enemigos.empty();
             paredes_ctual = mundo_mapa.get_pared();
             personaje1.setx(170);
             personaje1.sety(250);
             vida = 100;
-            estado = vivo;   
-    }} 
+            estado = vivo;}else{
+            caminando =false;}
+    }} }
 
     void juego::vuelta_ala_tierra() {
         memorias.push_back(lvlluz);

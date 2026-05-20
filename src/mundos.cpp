@@ -68,11 +68,13 @@ void mundo::crearNivel (){
     n3.historia.push_back ("Se empieza a oscurecer");
     n3.historia.push_back ("El ambiente comienza a ...\ndistorsionarse ...");
     n3.historia.push_back ("Eso es un... ¿Águila?");
+    personaje comadreja2 (100,100,2,nullptr, {103, 60, 25, 103}, 50);
     personaje aguila (245,175,4,nullptr, {103, 37, 25, 103}, 100);
-    n3.enemigos.push_back(comadreja1);
+    n3.enemigos.push_back(comadreja2);
     n3.enemigos.push_back(aguila);
+    objeto flor1(50,50);
     objeto roca(150,250);
-    n3.objetos.push_back(flor);
+    n3.objetos.push_back(flor1);
     n3.objetos.push_back(roca);
     niveles.push_back(n3);
 
@@ -86,11 +88,14 @@ void mundo::crearNivel (){
     n4.historia.push_back ("Aquellas luces que no aceptan, \nse mantendran intermitentes toda la eternidad");
     n4.historia.push_back ("Otro plato para mi mesa...\nHmmm");
     n4.historia.push_back ("¿Cuack?");
+    personaje aguila2 (245,175,4,nullptr, {103, 37, 25, 103}, 100);
     personaje zorro (300,200,3,nullptr, {227, 115,22, 227}, 120);
-    n4.enemigos.push_back(aguila);
+    n4.enemigos.push_back(aguila2);
     n4.enemigos.push_back(zorro);
-    n4.objetos.push_back(flor);
-    n4.objetos.push_back(roca);
+    objeto flor2(50,50);
+    objeto roca1(150,250);
+    n4.objetos.push_back(flor2);
+    n4.objetos.push_back(roca1);
     niveles.push_back(n4);
 
     nivel n5;
@@ -108,9 +113,11 @@ void mundo::crearNivel (){
     personaje fantasmas (450,50,1,nullptr, {70,83,77, 227}, 180);
     n5.enemigos.push_back(zorro_fantasma);
     n5.enemigos.push_back(fantasmas);
+    objeto flor3(50,50);
+    objeto roca2(150,250);
     objeto pluma(200,200);
-    n5.objetos.push_back(flor);
-    n5.objetos.push_back(roca);
+    n5.objetos.push_back(flor3);
+    n5.objetos.push_back(roca2);
     n5.objetos.push_back(pluma);
     niveles.push_back(n5);
 
@@ -186,6 +193,22 @@ return niveles[mundoActual].Fondo;
 }
 std::vector<SDL_Rect> mundo::get_pared() {
     return niveles[mundoActual].paredes;
+}
+SDL_Point mundo::Spawn_seguro() {
+    for (int y = 50; y < 550; y += 20) {
+        for (int x = 50; x < 750; x += 20) {
+            SDL_Rect test = {x, y, 32, 32};
+            bool colision = false;
+            for (int i = 0; i < niveles[mundoActual].paredes.size(); i++) {
+                if (SDL_HasIntersection(&test, &niveles[mundoActual].paredes[i])) {
+                    colision = true;
+                    break;
+                }
+            }
+            if (!colision) return {x, y};
+        }
+    }
+    return {170, 250};
 }
 void mundo::aplicar_reglas(std::vector<personaje>& enemigos, std::vector<objeto>& objetos, int& oscuridad){
     enemigos.clear();
