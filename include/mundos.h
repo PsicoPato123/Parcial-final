@@ -22,6 +22,7 @@ public:
     void cambiar_mundo(int neww);
     void aplicar_reglas(std::vector<personaje>& enemigos, std::vector<objeto>& objetos, int& oscuridad);
     std::vector<std::string> get_historia(); 
+    std::vector<SDL_Rect>get_pared();
     int get_mundo_ctual(){
         return mundoActual;
     };

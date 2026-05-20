@@ -57,7 +57,7 @@ private:
     void vuelta_ala_tierra();
     std::vector<int> memorias;
     estado_jugador estado;
-    mundo mundo;
+    mundo mundo_mapa;
     bool dialogo = false;
     int linea_dialogo = 0;
     std::vector<std::string> dialogo_ctual;  
@@ -71,5 +71,7 @@ private:
     std::vector<objeto>proyectiles;
     bool conObjeto;
     int objeto_ctual;
+    std::vector<SDL_Rect> paredes_ctual;
+    bool con_enemigos;
 }; 
-#endif // JUEGO_H
+#endif // JUEGO_H 
