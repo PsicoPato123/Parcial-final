@@ -59,5 +59,10 @@ private:
     bool dialogo = false;
     int linea_dialogo = 0;
     std::vector<std::string> dialogo_ctual;  
+    TTF_Font* fuente;
+
+    int chars_mostrados = 0;
+    int delay_escritura = 2; 
+    int tiempo_escribiendo = 0;
 }; 
 #endif // JUEGO_H

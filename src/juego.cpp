@@ -5,6 +5,11 @@
 
     juego::juego() : personaje1(300, 250, 5, nullptr, {237, 249, 67, 237}) {
         SDL_Init(SDL_INIT_VIDEO);
+        TTF_Init();
+        fuente = TTF_OpenFont ("04B_11_.ttf", 20);
+        if (!fuente){
+            std::cout<<"No hay una fuente cargada";
+        }
         window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         paredarriba = {0, 0, 800, 20};
@@ -31,6 +36,8 @@
         direcciony=0;
         lvlluz=0;
         estado = vivo; 
+
+    
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -88,13 +95,40 @@
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, lvlluz * 40);
         SDL_Rect oscuridad = {0, 0, 750, 600};
         SDL_RenderFillRect(renderer, &oscuridad);
+
         if (dialogo) {
-            SDL_Rect caja = {50, 370, 600, 175};
+            SDL_Color blanco = {255,255,255};
+            std::string visible =
+            dialogo_ctual[linea_dialogo].substr(0, chars_mostrados);
+            SDL_Surface* textoS = TTF_RenderUTF8_Blended(
+                fuente,
+                visible.c_str(), blanco
+            );
+            SDL_Texture* textot =
+            SDL_CreateTextureFromSurface(
+                renderer, textoS
+            );
+            SDL_Rect textoRect = {
+                80,
+                400,
+                textoS->w,
+                textoS->h
+            };
+            SDL_RenderCopy(
+                renderer,
+                textot,
+                NULL,
+                &textoRect
+            );
+
+            SDL_FreeSurface(textoS);
+            SDL_DestroyTexture(textot);
+            SDL_Rect cajita = {50, 370, 550, 150};
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 200);
-            SDL_RenderFillRect(renderer, &caja);
+            SDL_RenderFillRect(renderer, &cajita);
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            SDL_RenderDrawRect(renderer, &caja);
+            SDL_RenderDrawRect(renderer, &cajita);
 
         }        
         SDL_RenderPresent (renderer);
@@ -114,6 +148,9 @@
                     linea_dialogo ++;
                     if (linea_dialogo >= dialogo_ctual.size()) {
                     dialogo = false;
+                }else{
+                    chars_mostrados = 0;
+                    tiempo_escribiendo = 0;
                 }
                 continue; }
             if (!dialogo){
@@ -152,7 +189,16 @@
     }
 
     void juego::actualizar() {
-        if (dialogo) return;
+        if (dialogo){
+            tiempo_escribiendo ++;
+
+            if (tiempo_escribiendo >= delay_escritura){
+            tiempo_escribiendo = 0;
+            
+            if (chars_mostrados < dialogo_ctual[linea_dialogo].size()){
+                chars_mostrados++;
+            } }
+        };
         if (mundo.get_mundo_ctual() ==1){
         if (damagetime > 0) {
             damagetime--;
