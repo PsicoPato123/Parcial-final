@@ -6,6 +6,12 @@
 #include "personaje.h"
 #include <string>
 
+struct nivel {  
+    std::vector<personaje>enemigos;
+    std::vector<std::string>historia;
+    std::vector<SDL_Rect>paredes;
+};
+
 class mundo {
 public:
     mundo();
@@ -18,16 +24,10 @@ public:
 
 private:
     int mundoActual;
+    void crearNivel();
+    std::vector<nivel>niveles;
     bool mundoInicializado;
-    struct nivel {
-        int lugar;
-        int enemigo;
-        int luz;
-        std::string historia;
-    };
-    std::vector<nivel> nivel; 
     bool mundo_cambio;
-    
 };
 
 #endif // MUNDOS_H

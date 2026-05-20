@@ -63,6 +63,6 @@ private:
 
     int chars_mostrados = 0;
     int delay_escritura = 2; 
-    int tiempo_escribiendo = 0;
+    int tiempo_escribiendo= 0;
 }; 
 #endif // JUEGO_H

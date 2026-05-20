@@ -9,6 +9,9 @@ void mundo:: cambiar_mundo(int neww){
     mundoActual = neww;
     mundoInicializado = true;
     mundo_cambio = true;
+
+    if (mundoActual < 0 || mundoActual>= niveles.size());
+    return;
 }
 std::vector<std::string> mundo::get_historia() {
     if (mundoActual == 1){
@@ -86,4 +89,13 @@ void mundo::aplicar_reglas(std::vector<personaje>& enemigos) {
             enemigos.push_back(personaje(400,300,8,nullptr,{0,0,0,255},250));
         break;
     }
+}
+void mundo::crearNivel (){
+    niveles.clear();
+
+    nivel n1;
+    n1.paredes = {
+
+    };
+
 }
