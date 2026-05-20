@@ -11,6 +11,7 @@
         if (!fuente){
             std::cout<<"No hay una fuente cargada";
         }
+        inicio = true;
         window = SDL_CreateWindow("Juego SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         paredarriba = {0, 0, 800, 20};
@@ -45,12 +46,58 @@
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
     }
+    
+    void juego::mostrar_inicio(){
+        SDL_SetRenderDrawColor(renderer,0,0,0,255);
+        SDL_RenderClear(renderer);
+
+        SDL_Color blanco = {255,255,255};
+        SDL_Surface* tituloS =
+        TTF_RenderUTF8_Blended(
+            fuente,
+            "Duckling Limbo", blanco);
+        SDL_Texture* tituloT =
+        SDL_CreateTextureFromSurface(
+            renderer, tituloS);
+         SDL_Rect tituloRect = {
+            180, 180,
+            tituloS->w,tituloS->h
+        };
+        SDL_RenderCopy(
+            renderer, tituloT,
+            NULL, &tituloRect
+        );
+        SDL_Surface* startS =
+        TTF_RenderUTF8_Blended(
+            fuente,
+            "Presiona ENTER", blanco);
+        SDL_Texture* startT =
+        SDL_CreateTextureFromSurface(
+            renderer,  startS);
+        SDL_Rect startRect = {
+            230,300,
+            startS->w,startS->h};
+        SDL_RenderCopy(
+            renderer,startT,
+            NULL,&startRect);
+        SDL_RenderPresent(renderer);
+
+        SDL_FreeSurface(tituloS);
+        SDL_DestroyTexture(tituloT);
+        SDL_FreeSurface(startS);
+        SDL_DestroyTexture(startT);
+    }
+    
     void juego::loop() {
         while (caminando){
             teclado();
-            actualizar();
-            mostrar();
-            SDL_Delay(16);
+            if (inicio){
+                mostrar_inicio();
+            }else{
+                actualizar();
+                mostrar();
+            }
+            SDL_Delay (15);
     }  }
 
     void juego::mostrar(){
@@ -155,7 +202,11 @@
             oldy= personaje1.gety();
             if(event.type == SDL_QUIT){
                 caminando= false;  }
-
+            
+            if (inicio && event.key.keysym.sym == SDLK_RETURN){
+                inicio = false;
+                continue;
+            }
             if (event.type== SDL_KEYDOWN) {
                 if (event.key.keysym. sym == SDLK_c && dialogo){
                     linea_dialogo ++;
@@ -209,8 +260,7 @@
                     ataque= false;
                 break;
             }; 
-    }   }
-    }
+    }   } }
 
     void juego::actualizar() {
         if (dialogo){
@@ -378,8 +428,13 @@
         if (mundo.get_mundo_ctual() <8) {
         mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);}
         else {
-            caminando=false;
-        }
+             SDL_ShowSimpleMessageBox( 
+            SDL_MESSAGEBOX_INFORMATION, "Duckling Limbo", "Gracias por jugar ^w^ ",
+            window
+        );
+        caminando = false;
+}
+
         
         dialogo_ctual= mundo.get_historia();
         linea_dialogo=0;
@@ -399,9 +454,7 @@
 
         personaje1.setx(300);
         personaje1.sety(250);
-        vida = 100;
-        
-        
+        vida = 100;   
     }
         
      void juego::limpiar() {

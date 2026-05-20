@@ -20,6 +20,7 @@ private:
 
 public:
    juego();
+    bool inicio;
     void inicializar();
     void loop();
     void actualizar();
@@ -36,6 +37,7 @@ public:
     ~juego();
 
 private:   
+    void mostrar_inicio();
     personaje personaje1;
     std::vector<personaje> enemigos;
     SDL_Rect paredarriba;
