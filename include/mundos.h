@@ -25,6 +25,7 @@ public:
     int get_mundo_ctual(){
         return mundoActual;
     };
+    SDL_Color getFondo();
 
 private:
     int mundoActual;
@@ -32,6 +33,7 @@ private:
     std::vector<nivel>niveles;
     bool mundoInicializado;
     bool mundo_cambio;
+    
 };
 
 #endif // MUNDOS_H

@@ -13,57 +13,12 @@ void mundo:: cambiar_mundo(int neww){
     mundoInicializado = true;
     mundo_cambio = true;
 
-    if (mundoActual < 0 || mundoActual>= niveles.size());{
-    return;}
-}
-std::vector<std::string> mundo::get_historia() {
-    return niveles[mundoActual].historia;
+    if (mundoActual < 0 || mundoActual>= niveles.size()){
+    return;
+}}
 
-    if (mundoActual == 1){
-        return {
-            "Despierta...",
-            "Este lugar resulta desconocido",
-            "¿Por qué se siente un vacio?"
-        };
-    }
-    if (mundoActual == 2){
-        return {
-            "La luz aún es brillante",
-            "Me da una buena sensación este lugar",
-            "Cuack! ^w^ ", 
-    };}
-    if (mundoActual == 3){
-        return{
-            "Algo me observa...",
-            "¿Hay alguien aquí?",
-            "Que extraño...",
-    };}
-    if (mundoActual == 4) {
-        return{
-            "El ambiente comienza a distorsionarse ...",
-            "Ya no se ve de la misma manera",
-            "¿Cuack?",
-    };}
-    if (mundoActual == 5) {
-        return{
-            "Los enemigos lo saben...",
-            "¿Qué es lo que yo debo saber?",
-            "Qué sucede?"
-    };}
-    if (mundoActual == 6){
-        return{
-             "No hay ni una voz, solo presencia",
-             "Es esto ... ¿Un recuerdo?",
-             "Debo salir..."
-        };
-    }
-    if (mundoActual == 7){
-        return{
-            "No debería haber llegado hasta aquí...",
-            "¿Eres tú...?",
-            "¿M-ma...Mamá?",
-        };}
-    return{};
+std::vector<std::string> mundo::get_historia() {
+return niveles[mundoActual].historia;
 }
 
 void mundo::crearNivel (){
@@ -86,6 +41,7 @@ void mundo::crearNivel (){
     n2.oscuridad=1;
     n2.historia.push_back ("Son demasiado buenos");
     n2.historia.push_back ("Sé que están por aquí");
+    n2.historia.push_back ("Me da una buena sensación este lugar");
     n2.historia.push_back ("Los encontraré");
     personaje comadreja (100,100,2,nullptr, {103, 60, 25, 103}, 50);
     n2.enemigos.push_back(comadreja);
@@ -100,6 +56,7 @@ void mundo::crearNivel (){
     n3.oscuridad=2;
     n3.historia.push_back ("Están cerca ... Escucho algo");
     n3.historia.push_back ("Se empieza a oscurecer");
+    n3.historia.push_back ("El ambiente comienza a distorsionarse ...");
     n3.historia.push_back ("Eso es un... ¿Águila?");
     personaje comadreja (100,100,2,nullptr, {103, 60, 25, 103}, 50);
     personaje aguila (245,175,4,nullptr, {103, 37, 25, 103}, 100);
@@ -138,6 +95,7 @@ void mundo::crearNivel (){
     n5.oscuridad=4;
     n5.historia.push_back ("Aquí todos buscan algo que perdieron hace mucho");
     n5.historia.push_back ("¿A qué se refiere?");
+    n5.historia.push_back ("Los enemigos lo saben...");
     n5.historia.push_back ("No perdí a nadie... Sólo ... Estan jugando");
     n5.historia.push_back ("¿Verdad?");
     personaje zorro_fantasma (300,200,3,nullptr, {70,83,77, 227}, 120);
@@ -159,6 +117,7 @@ void mundo::crearNivel (){
     n6.oscuridad=5;
     n6.historia.push_back ("Debí quedarme cerca");
     n6.historia.push_back ("Hace frío...");
+    n6.historia.push_back ("No hay ni una voz, solo presencia");
     n6.historia.push_back ("Mamá: Aún no estás listo");
     n6.historia.push_back ("Necesito estar con ustedes");
     personaje zorro_fantasma (300,200,4,nullptr, {70,83,77, 227}, 120);
@@ -219,7 +178,9 @@ void mundo::crearNivel (){
     n8.objetos.push_back(huevo);
     niveles.push_back(n8);
 }
-
+SDL_Color mundo::getFondo(){
+return niveles[mundoActual].Fondo;
+}
 void mundo::aplicar_reglas(std::vector<personaje>& enemigos, std::vector<objeto>& objetos, int& oscuridad){
     enemigos.clear();
     objetos.clear();

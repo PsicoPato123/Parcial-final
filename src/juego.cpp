@@ -58,7 +58,11 @@
     }  }
 
     void juego::mostrar(){
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        SDL_Color fondo = mundo.getFondo();
+        SDL_SetRenderDrawColor(
+            renderer,
+            fondo.r,fondo.g,fondo.b,fondo.a
+        );
         SDL_RenderClear(renderer);
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderFillRect(renderer, &paredarriba);
@@ -376,14 +380,15 @@
 
     void juego::vuelta_ala_tierra() {
         memorias.push_back(lvlluz);
-        mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);
+        if (mundo.get_mundo_ctual() <7) {
+        mundo.cambiar_mundo(mundo.get_mundo_ctual() + 1);}
         
         dialogo_ctual= mundo.get_historia();
         linea_dialogo=0;
         dialogo=true;
         
         enemigos.clear();
-        mundo.aplicar_reglas(enemigos, objetos);
+        mundo.aplicar_reglas(enemigos, objetos, lvlluz);
         if(memorias.size() == 3) {
         std::cout<<"Siento que no debería estar aquí... " << std::endl;
         }
