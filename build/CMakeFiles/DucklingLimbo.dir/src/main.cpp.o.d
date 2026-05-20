@@ -1,5 +1,5 @@
 CMakeFiles/DucklingLimbo.dir/src/main.cpp.o: \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/main.cpp \
+ /home/psicopatito/Projects/Duckling-Limbo/src/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -150,72 +150,72 @@ CMakeFiles/DucklingLimbo.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_main.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_stdinc.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_config.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_platform.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/begin_code.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/close_code.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_config_minimal.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_main.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_stdinc.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_config.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_platform.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/begin_code.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/close_code.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_config_minimal.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_assert.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_atomic.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_audio.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_error.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_endian.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_mutex.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_thread.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_rwops.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_clipboard.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_cpuinfo.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_assert.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_atomic.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_audio.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_error.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_endian.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_mutex.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_thread.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_rwops.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_clipboard.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_cpuinfo.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
  /usr/include/c++/13/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_events.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_video.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_pixels.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_rect.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_surface.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_blendmode.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_keyboard.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_keycode.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_scancode.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_mouse.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_joystick.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_guid.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_gamecontroller.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_sensor.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_quit.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_gesture.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_touch.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_filesystem.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_haptic.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_hidapi.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_hints.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_loadso.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_log.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_messagebox.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_metal.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_power.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_render.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_shape.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_system.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_timer.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_version.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_locale.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_misc.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/juego.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL_ttf.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/SDL2/SDL.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/personaje.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_events.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_video.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_pixels.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_rect.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_surface.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_blendmode.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_keyboard.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_keycode.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_scancode.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_mouse.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_joystick.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_guid.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_gamecontroller.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_sensor.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_quit.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_gesture.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_touch.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_filesystem.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_haptic.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_hidapi.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_hints.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_loadso.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_log.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_messagebox.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_metal.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_power.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_render.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_shape.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_system.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_timer.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_version.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_locale.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_misc.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/juego.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL_ttf.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/SDL2/SDL.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/personaje.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/mundos.h \
- /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include/objeto.h
+ /home/psicopatito/Projects/Duckling-Limbo/include/mundos.h \
+ /home/psicopatito/Projects/Duckling-Limbo/include/objeto.h

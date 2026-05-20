@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/include -isystem /usr/include/SDL2
+CXX_INCLUDES = -I/home/psicopatito/Projects/Duckling-Limbo/include -isystem /usr/include/SDL2
 
 CXX_FLAGS = -std=gnu++17
 

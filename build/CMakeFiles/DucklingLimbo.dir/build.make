@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo
+CMAKE_SOURCE_DIR = /home/psicopatito/Projects/Duckling-Limbo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build
+CMAKE_BINARY_DIR = /home/psicopatito/Projects/Duckling-Limbo/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DucklingLimbo.dir/depend.make
@@ -70,74 +70,74 @@ include CMakeFiles/DucklingLimbo.dir/progress.make
 include CMakeFiles/DucklingLimbo.dir/flags.make
 
 CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o: CMakeFiles/DucklingLimbo.dir/flags.make
-CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o: /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/juego.cpp
+CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o: /home/psicopatito/Projects/Duckling-Limbo/src/juego.cpp
 CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o: CMakeFiles/DucklingLimbo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o -c /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/juego.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o -c /home/psicopatito/Projects/Duckling-Limbo/src/juego.cpp
 
 CMakeFiles/DucklingLimbo.dir/src/juego.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DucklingLimbo.dir/src/juego.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/juego.cpp > CMakeFiles/DucklingLimbo.dir/src/juego.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/psicopatito/Projects/Duckling-Limbo/src/juego.cpp > CMakeFiles/DucklingLimbo.dir/src/juego.cpp.i
 
 CMakeFiles/DucklingLimbo.dir/src/juego.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DucklingLimbo.dir/src/juego.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/juego.cpp -o CMakeFiles/DucklingLimbo.dir/src/juego.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/psicopatito/Projects/Duckling-Limbo/src/juego.cpp -o CMakeFiles/DucklingLimbo.dir/src/juego.cpp.s
 
 CMakeFiles/DucklingLimbo.dir/src/main.cpp.o: CMakeFiles/DucklingLimbo.dir/flags.make
-CMakeFiles/DucklingLimbo.dir/src/main.cpp.o: /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/main.cpp
+CMakeFiles/DucklingLimbo.dir/src/main.cpp.o: /home/psicopatito/Projects/Duckling-Limbo/src/main.cpp
 CMakeFiles/DucklingLimbo.dir/src/main.cpp.o: CMakeFiles/DucklingLimbo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/main.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/main.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/main.cpp.o -c /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/main.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/main.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/main.cpp.o -c /home/psicopatito/Projects/Duckling-Limbo/src/main.cpp
 
 CMakeFiles/DucklingLimbo.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DucklingLimbo.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/main.cpp > CMakeFiles/DucklingLimbo.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/psicopatito/Projects/Duckling-Limbo/src/main.cpp > CMakeFiles/DucklingLimbo.dir/src/main.cpp.i
 
 CMakeFiles/DucklingLimbo.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DucklingLimbo.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/main.cpp -o CMakeFiles/DucklingLimbo.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/psicopatito/Projects/Duckling-Limbo/src/main.cpp -o CMakeFiles/DucklingLimbo.dir/src/main.cpp.s
 
 CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o: CMakeFiles/DucklingLimbo.dir/flags.make
-CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o: /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/mundos.cpp
+CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o: /home/psicopatito/Projects/Duckling-Limbo/src/mundos.cpp
 CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o: CMakeFiles/DucklingLimbo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o -c /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/mundos.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o -c /home/psicopatito/Projects/Duckling-Limbo/src/mundos.cpp
 
 CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/mundos.cpp > CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/psicopatito/Projects/Duckling-Limbo/src/mundos.cpp > CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.i
 
 CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/mundos.cpp -o CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/psicopatito/Projects/Duckling-Limbo/src/mundos.cpp -o CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.s
 
 CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o: CMakeFiles/DucklingLimbo.dir/flags.make
-CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o: /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/objeto.cpp
+CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o: /home/psicopatito/Projects/Duckling-Limbo/src/objeto.cpp
 CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o: CMakeFiles/DucklingLimbo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o -c /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/objeto.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o -c /home/psicopatito/Projects/Duckling-Limbo/src/objeto.cpp
 
 CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/objeto.cpp > CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/psicopatito/Projects/Duckling-Limbo/src/objeto.cpp > CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.i
 
 CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/objeto.cpp -o CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/psicopatito/Projects/Duckling-Limbo/src/objeto.cpp -o CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.s
 
 CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o: CMakeFiles/DucklingLimbo.dir/flags.make
-CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o: /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/personaje.cpp
+CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o: /home/psicopatito/Projects/Duckling-Limbo/src/personaje.cpp
 CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o: CMakeFiles/DucklingLimbo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o -c /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/personaje.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o -MF CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o.d -o CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o -c /home/psicopatito/Projects/Duckling-Limbo/src/personaje.cpp
 
 CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/personaje.cpp > CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/psicopatito/Projects/Duckling-Limbo/src/personaje.cpp > CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.i
 
 CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/personaje.cpp -o CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/psicopatito/Projects/Duckling-Limbo/src/personaje.cpp -o CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.s
 
 # Object files for target DucklingLimbo
 DucklingLimbo_OBJECTS = \
@@ -159,7 +159,7 @@ DucklingLimbo: CMakeFiles/DucklingLimbo.dir/build.make
 DucklingLimbo: /usr/lib/x86_64-linux-gnu/libSDL2.so
 DucklingLimbo: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 DucklingLimbo: CMakeFiles/DucklingLimbo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable DucklingLimbo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable DucklingLimbo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DucklingLimbo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -171,6 +171,6 @@ CMakeFiles/DucklingLimbo.dir/clean:
 .PHONY : CMakeFiles/DucklingLimbo.dir/clean
 
 CMakeFiles/DucklingLimbo.dir/depend:
-	cd /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles/DucklingLimbo.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/psicopatito/Projects/Duckling-Limbo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/psicopatito/Projects/Duckling-Limbo /home/psicopatito/Projects/Duckling-Limbo /home/psicopatito/Projects/Duckling-Limbo/build /home/psicopatito/Projects/Duckling-Limbo/build /home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles/DucklingLimbo.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/DucklingLimbo.dir/depend
 

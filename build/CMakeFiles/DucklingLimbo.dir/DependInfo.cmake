@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/juego.cpp" "CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o.d"
-  "/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/main.cpp" "CMakeFiles/DucklingLimbo.dir/src/main.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/main.cpp.o.d"
-  "/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/mundos.cpp" "CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o.d"
-  "/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/objeto.cpp" "CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o.d"
-  "/mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/src/personaje.cpp" "CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o.d"
+  "/home/psicopatito/Projects/Duckling-Limbo/src/juego.cpp" "CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/juego.cpp.o.d"
+  "/home/psicopatito/Projects/Duckling-Limbo/src/main.cpp" "CMakeFiles/DucklingLimbo.dir/src/main.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/main.cpp.o.d"
+  "/home/psicopatito/Projects/Duckling-Limbo/src/mundos.cpp" "CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/mundos.cpp.o.d"
+  "/home/psicopatito/Projects/Duckling-Limbo/src/objeto.cpp" "CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/objeto.cpp.o.d"
+  "/home/psicopatito/Projects/Duckling-Limbo/src/personaje.cpp" "CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o" "gcc" "CMakeFiles/DucklingLimbo.dir/src/personaje.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

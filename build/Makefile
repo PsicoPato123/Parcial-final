@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo
+CMAKE_SOURCE_DIR = /home/psicopatito/Projects/Duckling-Limbo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build
+CMAKE_BINARY_DIR = /home/psicopatito/Projects/Duckling-Limbo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles /home/psicopatito/Projects/Duckling-Limbo/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/USUARIO/Documents/Projects/Duckling-Limbo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/psicopatito/Projects/Duckling-Limbo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
