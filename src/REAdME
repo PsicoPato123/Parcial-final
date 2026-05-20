@@ -1,0 +1,18 @@
+Innovaciones:
+
+Narrativa:
+En mundos.cpp se genera la división de cada nivel con un ambiente distinto, en el cual se exponían las frases base para el juego
+con el fin de generar intriga para jugar y encontrar mayor interés en la aventura del señor pato.
+La implementación se dió por medio de una función que abarca vectores y punteros de los niveles manejados, adicional a eso se incluyen
+distintos factores en la arquitectura de cada escenario, objeto y enemigo, tales como tamaño, nivel de vida, daño y características físicas como
+lo es el manejo de colores RGBA
+
+Figura del personaje:
+En personaje.cpp se crea el protagonista del juego, el cual es un pato, se crea parte por parte su cuerpo, por medio de rectangulos de SDL, se tuvieron en cuenta
+factores como la medida de cada parte, el ancho y el alto que iba a abarcar en la pantalla, dando como resultado una composición de figuras geometricas que resultan
+agradables a la vista al mostrar un patito. 
+
+Textos dinámicos:
+Gracias a la biblioteca SDL.TTf fue posible brindar una experiencia un poquito más a otro nivel por medio de monologos del protagonista para contar su historia, 
+dando espacio al jugador de leer a su ritmo y conocer la historia poco a poco.
+Para ello se descargó la librería y adicional las fuentes TTf para hacer mas vistosa la idea de leer en el juego y se viera mucho más bonito

@@ -1,0 +1,3 @@
+En La carpeta Include es posible visibilizar la separación de responsabilidades entre bibliotecas, con el fin 
+de optimizar el motor principal lo máximo posible, dejando la separación de entidades, objetos y funciones que facilitan más 
+el manejo y creación de un juego por medio del motor SDL.
