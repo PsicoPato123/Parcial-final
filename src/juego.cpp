@@ -2,6 +2,7 @@
     #include <iostream>
     #include "personaje.h"
     #include "mundos.h"
+    #include "objeto.h"
 
     juego::juego() : personaje1(300, 250, 5, nullptr, {237, 249, 67, 237}) {
         SDL_Init(SDL_INIT_VIDEO);
@@ -37,7 +38,12 @@
         lvlluz=0;
         estado = vivo; 
 
-    
+        conObjeto=false;
+        objeto_ctual = 0;
+        objetos.push_back(objeto(200,200));
+        objetos.push_back(objeto(150,250));
+        objetos.push_back(objeto(240,360));
+        objetos.push_back(objeto(50,50));
     }
     void juego ::inicializar() {
         SDL_RenderPresent(renderer);
@@ -129,8 +135,15 @@
             SDL_RenderFillRect(renderer, &cajita);
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             SDL_RenderDrawRect(renderer, &cajita);
-
         }        
+        for (int i = 0; i < objetos.size(); i++) {
+            if (!objetos[i].en_mano()) {
+                objetos[i].dibujar(renderer);
+            } }
+        for (int i = 0; i < proyectiles.size(); i++) {
+            proyectiles[i].dibujar(renderer);
+        }
+
         SDL_RenderPresent (renderer);
     }; 
 
@@ -164,6 +177,12 @@
                     case SDLK_DOWN: abajo = true; 
                     break;
                     case SDLK_SPACE: ataque = true;
+                    if (conObjeto){
+                        objeto nuevo(
+                            personaje1.getx,
+                            personaje1.gety
+                        )
+                    };
                     break;
                 }
             } }
@@ -227,6 +246,17 @@
             direcciony= 1;
         }  
         SDL_Rect playerHitbox= personaje1.getHitbox();
+        
+        for (int i = 0; i < objetos.size(); i++) {
+            if (!objetos[i].en_mano()) {
+            SDL_Rect objetoHitbox = objetos[i].getHitbox();
+            if (SDL_HasIntersection(&playerHitbox, &objetoHitbox)) {
+            objetos[i].recoger();
+            conObjeto = true;
+            objeto_ctual = i;
+            std::cout << "Objeto en el ala\n";
+        } }
+}
         bool colision= false;
         if (SDL_HasIntersection(&playerHitbox, &paredarriba)) { 
             colision= true;
@@ -254,6 +284,10 @@
         ataquehitbox.w = 35;
         ataquehitbox.h = 35;
 
+        for(int i=0; i< proyectiles.size(); i++ ){
+            proyectiles[i].cambio();
+        }
+
         for (int i = 0; i < enemigos.size(); i++) {
             oldenemx= enemigos[i].getx();
             oldenemy= enemigos[i].gety();   
@@ -271,6 +305,7 @@
                 enemigos[i].mover(0, -1);}
 
         SDL_Rect enemyHitbox= enemigos[i].getHitbox();
+        
         if (ataque && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)&& ataque && cooldown == 0) {
             int vidaenemiga = enemigos[i].getvida();
             vidaenemiga -= 20;

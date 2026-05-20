@@ -6,7 +6,7 @@
 #include "personaje.h"
 #include <vector>
 #include "mundos.h"
-
+#include "objeto.h"
 
 class juego {
 private:
@@ -64,5 +64,10 @@ private:
     int chars_mostrados = 0;
     int delay_escritura = 2; 
     int tiempo_escribiendo= 0;
+
+    std::vector<objeto>objetos;
+    std::vector<objeto>proyectiles;
+    bool conObjeto;
+    int objeto_ctual;
 }; 
 #endif // JUEGO_H
