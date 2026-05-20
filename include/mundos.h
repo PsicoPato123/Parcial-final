@@ -9,7 +9,7 @@
 class mundo {
 public:
     mundo();
-    void cambiar_mundo(int nuevo);
+    void cambiar_mundo(int neww);
     void aplicar_reglas(std::vector<personaje>& enemigos);
     std::vector<std::string> get_historia(); 
     int get_mundo_ctual(){

@@ -2,9 +2,11 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "personaje.h"
 #include <vector>
 #include "mundos.h"
+
 
 class juego {
 private:
@@ -31,11 +33,11 @@ public:
     enum estado_jugador{
     vivo, muerto, en_transicion
     };
+    ~juego();
 
 private:   
     personaje personaje1;
     std::vector<personaje> enemigos;
-    ~juego();
     SDL_Rect paredarriba;
     SDL_Rect paredabajo;
     SDL_Rect paredizquierda;    

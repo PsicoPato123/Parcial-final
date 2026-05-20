@@ -4,7 +4,11 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/SDL2/include"
+                "C:/SDL2/include",
+                "C:/Users/USUARIO/Documents/Projects/Duckling-Limbo/include",
+                "C:/Users/USUARIO/Documents/Prog/SDL2-2.32.10/i686-w64-mingw32/include",
+                "C:/Users/USUARIO/Documents/Prog/SDL2_ttf-2.22.0/i686-w64-mingw32/include",
+                "C:/Users/USUARIO/Documents/Prog/SDL2_ttf-2.22.0/i686-w64-mingw32/lib"
             ],
             "defines": [
                 "_DEBUG",

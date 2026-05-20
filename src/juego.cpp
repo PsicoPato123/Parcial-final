@@ -153,10 +153,10 @@
 
     void juego::actualizar() {
         if (dialogo) return;
-        if (mundo.get_mundo_ctual() ==1)
+        if (mundo.get_mundo_ctual() ==1){
         if (damagetime > 0) {
             damagetime--;
-        }
+        }}
          if (cooldown > 0) {
             cooldown--;}  
     
