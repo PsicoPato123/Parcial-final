@@ -1,19 +1,24 @@
 #include "mundos.h"
+#include "objeto.h"
+#include "personaje.h"
 
 mundo::mundo(){
     mundoActual = 0;
     mundoInicializado= false;
     mundo_cambio = false;
+    crearNivel();
 }
 void mundo:: cambiar_mundo(int neww){
     mundoActual = neww;
     mundoInicializado = true;
     mundo_cambio = true;
 
-    if (mundoActual < 0 || mundoActual>= niveles.size());
-    return;
+    if (mundoActual < 0 || mundoActual>= niveles.size());{
+    return;}
 }
 std::vector<std::string> mundo::get_historia() {
+    return niveles[mundoActual].historia;
+
     if (mundoActual == 1){
         return {
             "Despierta...",
@@ -60,42 +65,48 @@ std::vector<std::string> mundo::get_historia() {
         };}
     return{};
 }
-void mundo::aplicar_reglas(std::vector<personaje>& enemigos) {
-    enemigos.clear();
-    switch (mundoActual) {
-        case 0:
-            enemigos.push_back(personaje(100,100,2,nullptr, {103, 60, 25, 103}, 50));
-        break;
-        case 1:
-            enemigos.push_back(personaje(200,120,2,nullptr,{120,40,40,255},60));
-        break;
-        case 2:
-            enemigos.push_back(personaje(245,175,4,nullptr, {103, 37, 25, 103}, 100));
-            enemigos.push_back(personaje(400,200,2,nullptr,{80,80,80,255},80));
-        break;
-        case 3:
-            enemigos.push_back(personaje(300,200,3,nullptr,{227,115,22,255},120));
-        break;
-        case 4:
-            enemigos.push_back(personaje(300,200,3,nullptr, {227, 115,22, 227}, 120));
-        break;
-        case 5:
-            enemigos.push_back(personaje(250,250,4,nullptr,{50,50,50,255},180));
-        break;
-        case 6:
-            enemigos.push_back(personaje(450,50,1,nullptr, {227, 36, 22, 227}, 180));
-        break;
-        case 7: 
-            enemigos.push_back(personaje(400,300,8,nullptr,{0,0,0,255},250));
-        break;
-    }
-}
+
 void mundo::crearNivel (){
     niveles.clear();
-
     nivel n1;
     n1.paredes = {
-
     };
+    n1.Fondo = {101,230,228,225};
+    n1.oscuridad =0;
+    n1.historia.push_back ("¿Dónde están todos?");
+    n1.historia.push_back ("Seguramente están jugando :D");
+    n1.historia.push_back ("Los encontraré");
+    niveles.push_back(n1);
 
+    nivel n2;
+    n2.paredes = {
+    };
+    n2.Fondo = {48,171,169,225};
+    n2.oscuridad=1;
+    n2.historia.push_back ("Son demasiado buenos");
+    n2.historia.push_back ("Sé que están por aquí");
+    n2.historia.push_back ("Los encontraré");
+    personaje comadreja (100,100,2,nullptr, {103, 60, 25, 103}, 50);
+    n2.enemigos.push_back(comadreja);
+    objeto flor(50,50);
+    n2.objetos.push_back(flor);
+    niveles.push_back(n2);
 }
+
+void mundo::aplicar_reglas(std::vector<personaje>& enemigos, std::vector<objeto>& objetos, int& oscuridad){
+    enemigos.clear();
+    objetos.clear();
+    enemigos =
+    niveles[mundoActual].enemigos;
+    objetos =
+    niveles[mundoActual].objetos;
+    oscuridad =
+    niveles[mundoActual].oscuridad;
+}
+
+//n4, ¿por que sigues caminando? Ellos ya no estan aqui
+//n4Las almas que no aceptan el final vagaran eternamente
+//n5 Aqui todos buscan algo que perdieron hace mucho
+// n6 aun no estas listo
+//n7 luchare hasta el final 
+//n8 Ya puedes descansar

@@ -18,12 +18,13 @@ void objeto::dibujar(SDL_Renderer* renderer) {
     } }
 
 void objeto::cambio(){
-    if (lanzando){
+    if (lanzado){
         x+= direccionx * velocidad;
         y+= direcciony * velocidad; 
         hitbox.x=x;
         hitbox.y=y;
-    }
+        if (x < 0 || x > 800 || y < 0 || y > 600){
+        lanzado = false; }}
 }
 void objeto::lanzar(int dx, int dy){
     lanzado=true;

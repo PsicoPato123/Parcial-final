@@ -120,21 +120,20 @@
                 textoS->w,
                 textoS->h
             };
+            SDL_Rect cajita = {50, 370, 550, 150};
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 200);
+            SDL_RenderFillRect(renderer, &cajita);
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            SDL_RenderDrawRect(renderer, &cajita);
+
             SDL_RenderCopy(
                 renderer,
                 textot,
                 NULL,
                 &textoRect
             );
-
             SDL_FreeSurface(textoS);
             SDL_DestroyTexture(textot);
-            SDL_Rect cajita = {50, 370, 550, 150};
-
-            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 200);
-            SDL_RenderFillRect(renderer, &cajita);
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            SDL_RenderDrawRect(renderer, &cajita);
         }        
         for (int i = 0; i < objetos.size(); i++) {
             if (!objetos[i].en_mano()) {
@@ -176,16 +175,21 @@
                     break;
                     case SDLK_DOWN: abajo = true; 
                     break;
-                    case SDLK_SPACE: ataque = true;
-                    if (conObjeto){
-                        objeto nuevo(
-                            personaje1.getx,
-                            personaje1.gety
-                        )
-                    };
-                    break;
-                }
+                    case SDLK_SPACE: ataque = true;              
+            if (conObjeto){
+                objeto nuevo(
+                    personaje1.getx(),
+                    personaje1.gety()
+                );
+                nuevo.lanzar(
+                    direccionx,
+                    direcciony
+                );
+                proyectiles.push_back(nuevo);
+                conObjeto = false;}
+                    break; }
             } }
+
             if (event.type== SDL_KEYUP){
             switch (event.key.keysym.sym) {
                 case SDLK_LEFT:
@@ -286,7 +290,10 @@
 
         for(int i=0; i< proyectiles.size(); i++ ){
             proyectiles[i].cambio();
-        }
+            if (!proyectiles[i].lanzando()){
+                proyectiles.erase(
+                    proyectiles.begin() +i);
+            }}
 
         for (int i = 0; i < enemigos.size(); i++) {
             oldenemx= enemigos[i].getx();
@@ -305,7 +312,22 @@
                 enemigos[i].mover(0, -1);}
 
         SDL_Rect enemyHitbox= enemigos[i].getHitbox();
-        
+        for (int j = 0; j < proyectiles.size(); j++) {
+        SDL_Rect proyectilHitbox =
+        proyectiles[j].getHitbox();
+
+        if (SDL_HasIntersection(
+            &enemyHitbox,
+            &proyectilHitbox
+        )) {
+            enemigos[i].setvida(
+                enemigos[i].getvida() - 25
+            );
+            proyectiles.erase(
+                proyectiles.begin() + j
+            );
+            break;
+        }}
         if (ataque && SDL_HasIntersection(&ataquehitbox, &enemyHitbox)&& ataque && cooldown == 0) {
             int vidaenemiga = enemigos[i].getvida();
             vidaenemiga -= 20;
